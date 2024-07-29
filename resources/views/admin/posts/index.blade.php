@@ -12,6 +12,7 @@
       <table class="table-auto w-full">
         <thead class="">
           <tr class="text-ts text-gray-700 text-left">
+            <th class="font-medium">画像</th>
             <th class="font-medium">タイトル</th>
             <th class="font-medium text-left">カテゴリー</th>
             <th class="font-medium text-left">ジャンル</th>
@@ -22,11 +23,18 @@
         <tbody>
           @foreach($posts as $post)
           <tr>
-          <td class="flex py-6"><img src="" alt=""><p>{{$post->title}}</p></td>
+          <td class="flex py-6">
+            @if($post->img_path)
+            <img src="{{asset('storage/'. $post->img_path)}}" alt="{{$post->title}}の画像" class="w-20 h-20 rounded">
+            @else 
+            <img src="/images/admin/noimage.jpg" alt="No image" class="w-20 h-20 rounded">
+            @endif
+          </td>
+          <td class="font-medium text-left">{{$post->title}}</td>
           <td class="font-medium text-left">カテゴリー</td>
           <td class="font-medium text-left">ジャンル</td>
-          <td class="font-medium text-left">{{Str::limit($post->content,12,'...')}}</td>
-          <td class="font-medium text-left">更新日時</td>
+          <td class="font-medium text-left">{{$post->created_at}}</td>
+          <td class="font-medium text-left">{{$post->updated_at}}</td>
           </tr>
           @endforeach
         </tbody>
