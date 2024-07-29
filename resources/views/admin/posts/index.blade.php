@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-  <section class="mb-6 py-8 bg-white rounded">
-    <div class="flex items-center px-6 pb-4 border-d">
-      <h2 class="text-2xl font-bold">投稿一覧</h2>
+  <section class="mb-6 mt-8 py-8 bg-white rounded-md">
+    <div class="flex items-center px-6 pb-4 mb-10 border-d">
+      <h2 class="text-xl font-bold">投稿一覧</h2>
         <div class="ml-auto">
-      <a href="" class="py-2 px-6 text-xm text-white font-semibold bg-purple-500 rounded-md">新規投稿</a>
+      <a href="{{route('admin.posts.create')}}" class="py-2 px-6 text-xm text-white font-semibold bg-purple-500 rounded-md">新規投稿</a>
         </div>
     </div>
-    <div class="pt-4 px-4 overflow-x-auto">
+    <div class="pt-4 px-6 overflow-x-auto">
       <table class="table-auto w-full">
         <thead class="">
           <tr class="text-ts text-gray-700 text-left">
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           @foreach($posts as $post)
-          <tr>
+          <tr class="border-b border-gray-100">
           <td class="flex py-6">
             @if($post->img_path)
             <img src="{{asset('storage/'. $post->img_path)}}" alt="{{$post->title}}の画像" class="w-20 h-20 rounded">
@@ -33,8 +33,8 @@
           <td class="font-medium text-left">{{$post->title}}</td>
           <td class="font-medium text-left">カテゴリー</td>
           <td class="font-medium text-left">ジャンル</td>
-          <td class="font-medium text-left">{{$post->created_at}}</td>
-          <td class="font-medium text-left">{{$post->updated_at}}</td>
+          <td class="font-medium text-left">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d')}}</td>
+          {{-- <td class="font-medium text-left">{{$post->updated_at}}</td> --}}
           </tr>
           @endforeach
         </tbody>

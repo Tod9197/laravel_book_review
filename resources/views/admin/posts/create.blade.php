@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-<section class="py-4">
-  <div class="containe mx-auto">
-    <div class="py-4 bg-white rounded">
+<section class="py-6">
+  <div class="container mx-auto">
+    <div class="py-6 bg-white rounded-md">
       <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="flex px-6 pb-4 border-b items-center justify-between">
-          <h3 class="text-2xl font-bold">書籍登録</h3>
-          <div><button type="submit" class="py-2 px-6 text-xm text-white font-semibold bg-blue-400 rounded-md">保存</button>
+          <h3 class="text-xl font-bold">書籍登録</h3>
+          <div><button type="submit" class="py-2 px-6 text-xm text-white font-semibold bg-blue-400 rounded-md">投稿する</button>
           </div>
         </div>
 

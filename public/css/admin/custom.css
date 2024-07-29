@@ -1,13 +1,33 @@
+/* mainの高さ指定 */
 .h-1200 {
     height: 1200px;
 }
+
+/* セレクトタブ */
 .select2-container--default .select2-selection--multiple {
     border: 2px solid #eee;
 }
-
 .select2-container--default
     .select2-selection--multiple
     .select2-selection__rendered {
     padding: 4px 0 10px 4px;
     border-radius: 0.25rem;
+}
+
+/* successメッセージのフェードアウト */
+.relative-container {
+    position: relative;
+}
+#success-message {
+    position: absolute;
+    transition: opacity 0.5s ease-out;
+    top: 150px;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+.fade-out {
+    opacity: 0;
+}
+.hidden {
+    display: none;
 }
