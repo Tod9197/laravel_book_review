@@ -4,11 +4,12 @@
 <section class="py-6">
   <div class="container mx-auto">
     <div class="py-6 bg-white rounded-md">
-      <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('admin.posts.update',['post' => $post->id])}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="flex px-6 pb-4 border-b items-center justify-between">
-          <h3 class="text-xl font-bold">書籍登録</h3>
-          <div><button type="submit" class="py-2 px-6 text-xm text-white font-semibold bg-blue-400 rounded-md">投稿する</button>
+          <h3 class="text-xl font-bold">レビュー内容編集</h3>
+          <div><button type="submit" class="py-2 px-6 text-xm text-white font-semibold bg-blue-400 rounded-md">更新する</button>
           </div>
         </div>
 
@@ -26,33 +27,38 @@
           {{-- エラーメッセージここまで --}}
           <div class="mb-6">
             <label class="block text-sm font-medium mb-4" for="title">書籍タイトル<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
-            <input id="title" class="block w-3/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="title" type="text" value={{old('title')}}>
+            <input id="title" class="block w-3/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="title" type="text" value={{old('title',$post->title)}}>
           </div>
 
           <div class="mb-6">
             <label class="block text-sm font-medium mb-4" for="title">書籍URL<span class="text-gray-500 ml-2 text-xs">(任意:AmazonなどのURL)</span></label>
-            <input id="url" class="block w-3/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="url" type="text" value={{old('url')}}>
+            <input id="url" class="block w-3/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="url" type="text" value={{old('url',$post->url)}}>
           </div>
 
           <div class="mb-6">
             <label class="block text-sm font-medium mb-4" for="image">画像<span class="text-gray-500 ml-2 text-xs">(任意)</span></label>
             <div class="flex items-end">
-              <img id="previewImage" src="/images/admin/noimage.jpg" data-noimage="/images/admin/noimage.jpg" alt="" class="rounded shadow-md w-40">
+              <img id="previewImage" src="{{ $post->img_path ? asset('storage/' . $post->img_path) : asset('images/admin/noimage.jpg') }}" data-noimage="{{ asset('images/admin/noimage.jpg') }}" alt="" class="rounded shadow-md w-40">
               <input id="image" class="block w-full px-4 py-3 mb-2" type="file" accept='image/*' name="image">
             </div>
           </div>
-          
+
+          <div class="mb-6">
+            <div class="flex items-center">
+              <input type="checkbox" name="deleteImage" id="deleteImage" value="1" class="mr-2">
+              <label for="deleteImage" class="text-sm">画像を削除</label>
+            </div>
+          </div>
 
           <div class="mb-6">
             <label class="block text-sm font-medium mb-4" for="category">カテゴリー<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
             <div class="flex">
-              <select class="appearance-none block w-2/5 pl-4 pr-8 py-3 mb-2 text-sm bg-white border rounded" name="" id="category">
+              <select class="appearance-none block w-2/5 pl-4 pr-8 py-3 mb-2 text-sm bg-white border rounded" name="category_id" id="category">
                 <option value="">選択してください</option>
-                <option value="">フロントエンド</option>
-                <option value="">バックエンド</option>
-                <option value="">サーバー/インフラ</option>
-                <option value="">Webデザイン</option>
-                <option value="">その他</option>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}" @if($category->id == old('category_id',$post->category->id)) selected @endif>{{$category->name}}</option>
+                @endforeach
+                
               </select>
             </div>
           </div>
@@ -68,7 +74,7 @@
 
           <div class="mb-6">
             <label class="block text-sm font-medium mb-4" for="content">書籍のレビュー<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
-            <textarea class="block w-full px-4 py-3 mb-4 text-base border rounded" name="content" id="content" cols="30" rows="10">{{old('content')}}</textarea>
+            <textarea class="block w-full px-4 py-3 mb-4 text-base border rounded" name="content" id="content" cols="30" rows="10">{{old('content',$post->content)}}</textarea>
           </div>
 
         </div>

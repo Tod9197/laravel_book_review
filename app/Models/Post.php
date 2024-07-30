@@ -14,6 +14,11 @@ class Post extends Model
         'img_path',
         'url',
         'content',
-        'user_id'
+        'user_id',
+        'category_id'
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -57,3 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 3000); // 4000ミリ秒（4秒）
 });
+
+// 削除確認メッセージ表示
+function confirmDelete() {
+    return confirm("投稿を完全に削除しますか？");
+}
