@@ -46,23 +46,21 @@
           <div class="mb-6">
             <label class="block text-sm font-medium mb-4" for="category">カテゴリー<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
             <div class="flex">
-              <select class="appearance-none block w-2/5 pl-4 pr-8 py-3 mb-2 text-sm bg-white border rounded" name="" id="category">
+              <select class="appearance-none block w-2/5 pl-4 pr-8 py-3 mb-2 text-sm bg-white border rounded" name="category_id" id="category">
                 <option value="">選択してください</option>
-                <option value="">フロントエンド</option>
-                <option value="">バックエンド</option>
-                <option value="">サーバー/インフラ</option>
-                <option value="">Webデザイン</option>
-                <option value="">その他</option>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                @endforeach
               </select>
             </div>
           </div>
 
           <div class="mb-6">
             <label class="block text-sm font-medium mb-4">ジャンル (言語、システムなど)<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
-            <select class="mr-6 w-4/5 block pl-4 pr-8 py-3 mb-2 text-sm border border border-blue-500 rounded" name="" id="js-pulldown" multiple>
-              <option selected>HTML&CSS</option>
-              <option>JavaScript</option>
-              <option>PHP</option>
+            <select class="mr-6 w-4/5 block pl-4 pr-8 py-3 mb-2 text-sm border border border-blue-500 rounded" name="genres[]" id="js-pulldown" multiple>
+              @foreach($genres as $genre)
+              <option value="{{$genre->id}}" {{in_array($genre->id,old('genres',[])) ? 'selected' : ''}}>{{$genre->name}}</option>
+              @endforeach
             </select>
           </div>
 

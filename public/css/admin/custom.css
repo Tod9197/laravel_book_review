@@ -3,6 +3,31 @@
     height: 1200px;
 }
 
+/* レスポンシブ */
+@media (max-width: 1024px) {
+    .responsive-text {
+        font-size: 0.875rem; /* テキストサイズを14pxに設定 */
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-text {
+        font-size: 0.75rem; /* テキストサイズを12pxに設定 */
+    }
+}
+@media (max-width: 480px) {
+    .responsive-text {
+        font-size: 0.5rem; /* テキストサイズを10pxに設定 */
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-padding {
+        padding-left: 5px; /* テキストサイズを10pxに設定 */
+        padding-right: 5px; /* テキストサイズを10pxに設定 */
+    }
+}
+
 /* セレクトタブ */
 .select2-container--default .select2-selection--multiple {
     border: 2px solid #eee;
@@ -28,9 +53,9 @@
 .fade-out {
     opacity: 0;
 }
-.hidden {
+/* .hidden {
     display: none;
-}
+} */
 /* ページネーション */
 .pagination {
     display: flex;

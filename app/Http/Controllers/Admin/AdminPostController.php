@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\StorePostRequest;
 use App\Models\Post;
+use App\Models\Genre;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,13 +15,18 @@ class AdminPostController extends Controller
 {
     // 投稿管理一覧
     public function index(){
-        $posts = Post::latest('updated_at')->paginate(2);
-        return view('admin.posts.index',['posts' => $posts]);
+        $posts = Post::latest('updated_at')->paginate(5);
+        $categories = Category::all();
+        return view('admin.posts.index',
+        ['posts' => $posts,
+        'categories' => $categories]);
     }
 
     // 投稿作成画面
     public function create(){
-        return view('admin.posts.create');
+        $categories = Category::all();
+        $genres = Genre::all();
+        return view('admin.posts.create',['categories' => $categories,'genres' => $genres]);
     }
 
     // 新規投稿作成
@@ -34,15 +40,23 @@ class AdminPostController extends Controller
             // 画像未選択の場合はnullを返す
             $validated['img_path'] = null;
         }
-        // 投稿新規作成
-        Post::create($validated);
+         // 投稿新規作成
+        $post = Post::create($validated);
+        // カテゴリーとジャンル紐付け
+        $post->category()->associate($validated['category_id']);
+        $post->genres()->sync($validated['genres'] ?? []);   
+        $post->save();
         return to_route('admin.posts.index')->with('success','投稿しました');
     }
 
 // 指定した投稿の編集画面
     public function edit(Post $post){
         $categories = Category::all();
-        return view('admin.posts.edit' , ['post' => $post, 'categories' => $categories]);
+        $genres = Genre::all();
+        return view('admin.posts.edit' ,
+        ['post' => $post, 
+        'categories' => $categories,
+        'genres' => $genres]);
     }
 
 // 指定した投稿の更新処理
@@ -68,6 +82,8 @@ class AdminPostController extends Controller
     // 投稿を更新
     $post->category()->associate($updateData['category_id']);
     $post->update($updateData);
+    $post->genres()->sync($updateData['genres'] ?? []);    
+    
     return to_route('admin.posts.index')->with('success', '投稿を更新しました');
     }
 

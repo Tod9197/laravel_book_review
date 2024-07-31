@@ -29,7 +29,7 @@
   
   <div class="flex h-full">
   {{-- 共通サイドナビ --}}
-  <div class="w-1/5 border-r border-r-indigo-300 py-14 h-5/5">
+  <div class="hidden lg:block w-1/5 border-r border-r-indigo-300 py-14 h-5/5">
     <h2 class="text-xl text-center font-semibold mb-10">投稿管理画面</h2>
     <ul class="flex flex-col justify-start">
       <li class="text-center mb-6 hover:text-red-500"><a href="">新規投稿</a></li>
@@ -41,7 +41,7 @@
   {{-- 共通サイドナビここまで --}}
 
 
-  <main class="w-4/5 p-8 bg-blue-50 h-1200">
+  <main class="w-full lg:w-4/5 p-4 sm:p-8 bg-blue-50 h-1200">
     {{-- 登録完了メッセージ(全ページ共通) --}}
     @if(session()->has('success'))
         <div id="success-message" class="mb-4 text-right ">
