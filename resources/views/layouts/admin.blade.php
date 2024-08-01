@@ -16,32 +16,35 @@
 <body class="antialiased text-body font-body">
 
   {{-- 共通ヘッダー(PC) --}}
-  <header class="p-14 py-8 flex justify-between border-b border-r-indigo-300 shadow-sm">
-    <h1 class="text-2xl  font-semibold">投稿管理画面</h1>
+  <header class="px-4 sm:px-8 lg:px-14 py-4 flex justify-between items-center border-b border-r-indigo-300 shadow-sm">
+    <h1 class="title-logo">
+      <a href="/">Engineer<br>Book Club</a>
+    </h1>
     <nav class="">
       <ul class="flex items-center justy-end list-none">
-        <li class="text-xl mr-5">ユーザー名</li>
-        <li class="text-xl mr-5"><img src="" alt="">画像</li>
+        <li class="mr-5 text-xs md:text-sm lg:text-base">ユーザー名</li>
+        <li class="mr-5 text-xs md:text-sm lg:text-base"><img src="" alt="">画像</li>
       </ul>
     </nav>
   </header>
   {{-- 共通ヘッダーここまで(PC) --}}
   
-  <div class="flex h-full">
+  <div class="flex h-auto">
   {{-- 共通サイドナビ --}}
   <div class="hidden lg:block w-1/5 border-r border-r-indigo-300 py-14 h-5/5">
     <h2 class="text-xl text-center font-semibold mb-10">投稿管理画面</h2>
     <ul class="flex flex-col justify-start">
-      <li class="text-center mb-6 hover:text-red-500"><a href="">新規投稿</a></li>
-      <li class="text-center mb-6 hover:text-red-500"><a href="">プロフィール変更</a></li>
-      <li class="text-center mb-6 hover:text-red-500"><a href="">ログアウト</a></li>
-      <li class="text-center mb-6 hover:text-red-500"><a href="">退会</a></li>
+      <li class="text-center hover:text-red-500 nav-item"><a class="" href="">新規投稿</a></li>
+      <li class="text-center hover:text-red-500 nav-item"><a href="">プロフィール変更</a></li>
+      <li class="text-center hover:text-red-500 nav-item"><a href="">パスワード変更</a></li>
+      <li class="text-center hover:text-red-500 nav-item"><a href="">退会</a></li>
+      <li class="text-center hover:text-red-500 nav-item"><a href="">ログアウト</a></li>
     </ul>
   </div>
   {{-- 共通サイドナビここまで --}}
 
 
-  <main class="w-full lg:w-4/5 p-4 sm:p-8 bg-blue-50 h-1200">
+  <main class="w-full lg:w-4/5 p-4 sm:p-8 main-height">
     {{-- 登録完了メッセージ(全ページ共通) --}}
     @if(session()->has('success'))
         <div id="success-message" class="mb-4 text-right ">
@@ -67,6 +70,19 @@
   {{-- ページ毎の個別内容ここまで --}}
   </main>
 </div>
+  {{-- 1024px以下のナビゲーション --}}
+  <section class="under-nav border-t border-r-indigo-300 shadow-sm">
+    <div class="p-4 sm:p-8">
+    <h2 class="sm:text-base md:text-lg lg:text-xl text-left font-semibold mb-4 sm:mb-10">投稿管理画面</h2>
+    <ul class="under-nav-flex">
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">新規投稿</a></li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">プロフィール変更</a></li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">パスワード変更</a></li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">ログアウト</a></li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">退会</a></li>
+    </ul>
+    </div>
+  </section>
 </body>
 </html>
 

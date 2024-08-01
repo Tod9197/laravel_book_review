@@ -4,11 +4,11 @@
   @php
     use Illuminate\Support\Str;
   @endphp
-  <section class="mb-6 mt-8 py-8 bg-white rounded-md">
-    <div class="flex items-center px-6 pb-4 mb-10 border-d">
+  <section class="mb-6 mt-8 pt-8 pb-4 bg-white rounded-md">
+    <div class="flex items-center px-6 pb-4 mb-4 sm:mb-8 md:mb-10 border-d">
       <h2 class="sm:text-base md:text-lg lg:text-xl font-bold">投稿一覧</h2>
         <div class="ml-auto">
-      <a href="{{route('admin.posts.create')}}" class="py-2 px-4 sm:px-6   text-xs md:text-sm lg:text-base text-white font-semibold bg-green-500 hover:opacity-80 rounded-md">新規投稿</a>
+      <a href="{{route('admin.posts.create')}}" class="py-2 px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-green-500 hover:opacity-80 rounded-md">新規投稿</a>
         </div>
     </div>
     <div class="pt-4 px-2 md:px-6 overflow-x-auto">
@@ -64,7 +64,7 @@
             <form class="text-center mt-2" action="{{route('admin.posts.destroy',['post' => $post])}}" method="post" onsubmit="return confirmDelete()">
               @csrf
               @method('DELETE')
-            <button type="submit" class="w-14 md:w-18 lg:w-20 py-1 lg:text-base md:text-sm text-white font-semibold bg-red-500 rounded-md responsive-text">削除</button>
+            <button type="submit" class="w-14 md:w-18 lg:w-20 py-1 lg:text-base md:text-sm text-white font-semibold bg-red-500 hover:bg-red-400 rounded-md responsive-text">削除</button>
             </form>
             </div>
           </td>
