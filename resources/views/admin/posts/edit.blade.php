@@ -64,7 +64,7 @@
 
           <div class="mb-6">
             <label class="block text-xs sm:text-sm font-medium mb-4">ジャンル (言語、システムなど)<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
-            <select class="mr-6 w-4/5 block pl-4 pr-8 py-3 mb-2 text-sm border border border-blue-500 rounded" name="genres[]" id="js-pulldown" multiple>
+            <select class="mr-6 w-4/5 block pl-4 pr-8 py-3 mb-2 text-sm border border-blue-500 rounded" name="genres[]" id="js-pulldown" multiple>
               <option value="">選択してください</option>
               @foreach($genres as $genre)
               <option value="{{$genre->id}}" @if(in_array($genre->id,old('genres',$post->genres->pluck('id')->all()))) selected @endif>{{$genre->name}}</option>

@@ -34,7 +34,7 @@
   <div class="hidden lg:block w-1/5 border-r border-r-indigo-300 py-14 h-5/5">
     <h2 class="text-xl text-center font-semibold mb-10">投稿管理画面</h2>
     <ul class="flex flex-col justify-start">
-      <li class="text-center hover:text-red-500 nav-item"><a class="" href="">新規投稿</a></li>
+      <li class="text-center hover:text-red-500 nav-item"><a class="" href="{{route('admin.posts.create')}}">新規投稿</a></li>
       <li class="text-center hover:text-red-500 nav-item"><a href="">プロフィール変更</a></li>
       <li class="text-center hover:text-red-500 nav-item"><a href="">パスワード変更</a></li>
       <li class="text-center hover:text-red-500 nav-item"><a href="">退会</a></li>
@@ -75,7 +75,7 @@
     <div class="p-4 sm:p-8">
     <h2 class="sm:text-base md:text-lg lg:text-xl text-left font-semibold mb-4 sm:mb-10">投稿管理画面</h2>
     <ul class="under-nav-flex">
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">新規投稿</a></li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="{{route('admin.posts.create')}}">新規投稿</a></li>
       <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">プロフィール変更</a></li>
       <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">パスワード変更</a></li>
       <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">ログアウト</a></li>
