@@ -37,7 +37,7 @@
           <div class="mb-0 md:mb-6">
             <label class="block text-xs sm:text-sm font-medium mb-4" for="image">画像<span class="text-gray-500 ml-2 text-xs">(任意)</span></label>
             <div class="img-flex items-end">
-              <img id="previewImage" src="/images/admin/noimage.jpg" data-noimage="/images/admin/noimage.jpg" alt="" class="rounded shadow-md w-40 uploadImg">
+              <img id="previewImage" src="/images/admin/noimage.jpg" data-noimage="/images/admin/noimage.jpg" alt="投稿した本の画像" class="rounded shadow-md w-40 uploadImg">
               <input id="image" class="block w-full px-4 py-3 mb-2 text-xs sm:text-sm" type="file" accept='image/*' name="image">
             </div>
           </div>

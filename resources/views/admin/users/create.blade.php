@@ -1,0 +1,77 @@
+@extends('layouts.admin')
+
+@section('content')
+
+<section class="py-8">
+  <div class="container mx-auto">
+    <div class="py-6 bg-white rounded-md">
+      <form action="{{route('admin.users.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="flex px-6 pb-4 border-b items-center justify-between">
+          <h3 class="sm:text-base md:text-lg lg:text-xl font-bold">ユーザー登録</h3>
+          <div><button type="submit" class="py-2 px-6 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-purple-500 hover:bg-purple-400 rounded-md">登録する</button>
+          </div>
+        </div>
+
+        <div class="pt-10 px-6">
+          {{-- エラーメッセージ --}}
+          @if($errors->any())
+          <div class="mb-8 py-4 px-6 border border-red-300 ng-red-50 rounded">
+            <ul>
+              @foreach($errors->all() as $error)
+              <li class="text-red400">{{$error}}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+          {{-- エラーメッセージここまで --}}
+
+        <div class="mb-6">
+            <label class="block text-xs sm:text-sm font-medium mb-4" for="name">名前<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
+            <input id="name" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="name" type="text" value={{old('name')}}>
+        </div>
+        <div class="mb-6">
+            <label class="block text-xs sm:text-sm font-medium mb-4" for="email">メールアドレス<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
+            <input id="email" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="email" type="text" value={{old('email')}}>
+        </div>
+        <div class="mb-6">
+            <label class="block text-xs sm:text-sm font-medium mb-4" for="password">パスワード<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
+            <input id="password" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="password" type="password">
+        </div>
+        <div class="mb-6">
+            <label class="block text-xs sm:text-sm font-medium mb-4" for="password">パスワード(確認)<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
+            <input id="password_confirmation" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="password_confirmation" type="password">
+        </div>
+        <div class="mb-0 md:mb-6">
+            <label class="block text-xs sm:text-sm font-medium mb-4" for="image">画像<span class="text-gray-500 ml-2 text-xs">(任意)</span>
+            </label>
+            <div class="img-flex items-end">
+              <img id="previewImage" src="/images/admin/noimage.jpg" data-noimage="/images/admin/noimage.jpg" alt="ユーザー画像" class="rounded shadow-md w-32 md:w-40 uploadImg">
+              <input id="image" class="block w-full px-4 py-3 mb-2 text-xs sm:text-sm" type="file" accept='image/*' name="image">
+            </div>
+          </div>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script>
+    // 画像プレビュー
+    document.getElementById('image').addEventListener('change', e => {
+        const previewImageNode = document.getElementById('previewImage')
+        const fileReader = new FileReader()
+        fileReader.onload = () => previewImageNode.src = fileReader.result
+        if (e.target.files.length > 0) {
+            fileReader.readAsDataURL(e.target.files[0])
+        } else {
+            previewImageNode.src = previewImageNode.dataset.noimage
+        }
+    })
+</script>
+@endsection
