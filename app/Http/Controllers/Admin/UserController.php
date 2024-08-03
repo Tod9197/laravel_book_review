@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Requests\Admin\StoreUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -21,6 +22,9 @@ class UserController extends Controller
     // ユーザー登録画面表示
     public function create()
     {
+        // if(!Auth::check()){
+        //     return redirect()->route('admin.login');
+        // }
         return view('admin.users.create');
     }
 
@@ -37,9 +41,12 @@ class UserController extends Controller
         }
         
         $validated['password'] = Hash::make($validated['password']);
-        User::create($validated);
+        $user = User::create($validated);
+        // そのままログイン認証
+        Auth::login($user);
 
-        return back()->with('success','ユーザー登録が完了ました');
+        return redirect()->route('admin.posts.index')->with('success','ユーザー登録が完了しました');
+        // return back()->with('success','ユーザー登録が完了ました');
     }
 
     /**

@@ -11,13 +11,13 @@ Route::get('/', function () {
 
 
 // 投稿管理画面
-Route::get('/admin/posts',[AdminPostController::class,'index'])->name('admin.posts.index');
+Route::get('/admin/posts',[AdminPostController::class,'index'])->name('admin.posts.index')->middleware('auth');
 // 新規作成ページ
-Route::get('/admin/posts/create',[AdminPostController::class,'create'])->name('admin.posts.create');
+Route::get('/admin/posts/create',[AdminPostController::class,'create'])->name('admin.posts.create')->middleware('auth');
 // 新規登録
 Route::post('/admin/posts',[AdminPostController::class,'store'])->name('admin.posts.store');
 // 編集画面
-Route::get('/admin/posts/{post}',[AdminPostController::class,'edit'])->name('admin.posts.edit');
+Route::get('/admin/posts/{post}',[AdminPostController::class,'edit'])->name('admin.posts.edit')->middleware('auth');
 //更新
 Route::put('/admin/posts/{post}',[AdminPostController::class,'update'])->name('admin.posts.update');
 // 削除
@@ -30,5 +30,7 @@ Route::get('/admin/users/create',[UserController::class,'create'])->name('admin.
 //ユーザー登録
 Route::post('/admin/users',[UserController::class,'store'])->name('admin.users.store');
 //ログイン
-Route::get('/admin/login',[AuthController::class,'showLoginForm'])->name('admin.login');
+Route::get('/admin/login',[AuthController::class,'showLoginForm'])->name('admin.login')->middleware('guest');
 Route::post('/admin/login',[AuthController::class,'login']);
+// ログアウト
+Route::post('/admin/logout',[AuthController::class,'logout'])->name('admin.logout');

@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    // ログイン画面
     public function showLoginForm(){
         return view('admin.login');
     }
 
+    // ログイン処理
     public function login(Request $request){
         // バリデーション
         $credentials = $request->validate([
@@ -35,4 +37,15 @@ class AuthController extends Controller
                 'email' => 'メールアドレスまたはパスワードが正しくありません',
             ])->onlyInput('email');
         }
+
+    // ログアウト
+    public function logout(Request $request){
+        Auth::logout();
+        //現在使っているセッションを無効化(セキュリティ強化)
+        $request->session()->invalidate();
+        // セッション無効化を再生成(セキュリティ対策)
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.login');
+    }
 }

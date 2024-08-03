@@ -9,17 +9,21 @@ use App\Models\Post;
 use App\Models\Genre;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminPostController extends Controller
 {
     // 投稿管理一覧
-    public function index(){
-        $posts = Post::latest('updated_at')->paginate(5);
+    public function index(Request $request){  
+
+        $user = $request->user();
+        $posts = Post::where('user_id',$user->id)->latest('updated_at')->paginate(5);
         $categories = Category::all();
         return view('admin.posts.index',
         ['posts' => $posts,
-        'categories' => $categories]);
+        'categories' => $categories,
+    ]);
     }
 
     // 投稿作成画面
@@ -32,6 +36,7 @@ class AdminPostController extends Controller
     // 新規投稿作成
     public function store(StorePostRequest $request){
         $validated = $request->validated();
+        $validated['user_id'] = Auth::id();
 
         // 画像選択した場合はimg_pathを設定する
         if($request->hasFile('image')){
@@ -90,11 +95,14 @@ class AdminPostController extends Controller
     // 指定したidの投稿の削除処理
     public function destroy(string $id){
         $post = Post::findOrFail($id);
-        $post->delete();
         if($post->img_path){
             Storage::disk('public')->delete($post->img_path);
-
-            return to_route('admin.posts.index')->with('success','投稿を削除しました');
         }
+        // 関連するジャンルの削除
+        $post->genres()->detach();
+        // 投稿の削除
+        $post->delete();
+
+        return to_route('admin.posts.index')->with('success','投稿を削除しました');
     }
 }

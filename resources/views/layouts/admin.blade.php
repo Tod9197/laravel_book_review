@@ -22,8 +22,13 @@
     </h1>
     <nav class="">
       <ul class="flex items-center justy-end list-none">
-        <li class="mr-5 text-xs md:text-sm lg:text-base">ユーザー名</li>
-        <li class="mr-5 text-xs md:text-sm lg:text-base"><img src="" alt="">画像</li>
+        @auth
+        <li class="mr-5 text-xs md:text-sm lg:text-base">{{\Auth::user()->name}}</li>
+        <li class="mr-5 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{asset('storage/'. \Auth::user()->img_path)}}" alt="ユーザー画像"></li>
+        @endauth
+        @guest
+        <li class="mr-5 text-xs md:text-sm lg:text-base"><a href="">ログイン</a></li>
+        @endguest
       </ul>
     </nav>
   </header>
@@ -38,7 +43,10 @@
       <li class="text-center hover:text-red-500 nav-item"><a href="">プロフィール変更</a></li>
       <li class="text-center hover:text-red-500 nav-item"><a href="">パスワード変更</a></li>
       <li class="text-center hover:text-red-500 nav-item"><a href="">退会</a></li>
-      <li class="text-center hover:text-red-500 nav-item"><a href="">ログアウト</a></li>
+      <form action="{{route('admin.logout')}}" method="post">
+        @csrf
+      <button type="submit" class="text-center hover:text-red-500 nav-item">ログアウト</button>
+      </form>
     </ul>
   </div>
   {{-- 共通サイドナビここまで --}}

@@ -31,8 +31,8 @@
 
   <section class="login-bg">
     <div class="container px-4 mx-auto">
-        <div class="login-box p-8 bg-white rounded-lg shadow">
-          <h1 class="mb-16 text-2xl font-semibold text-center login-title">ログイン</h1>
+        <div class="login-box p-4 md:p-6 lg:p-8 bg-white rounded-lg shadow">
+          <h1 class="mb-20 text-lg md:text-xl lg:text-2xl font-semibold text-center login-title">ログイン</h1>
 
           @if($errors->any())
           <div class="mb-8 py-4 px-6 border boreder-red-300 bg-red-50 rounded">
@@ -43,10 +43,10 @@
           @csrf
 
           <div class="mb-8">
-            <input class="block w-full lg:w-4/5 px-2 py-2 mb-2 text-sm bg-white border border-blue-300 rounded login-input" placeholder="メールアドレス" name="email" type="text" value={{old('email')}}>
+            <input class="block w-full px-2 py-2 mb-2 text-sm bg-white border border-blue-300 rounded login-input" placeholder="メールアドレス" name="email" type="text" value={{old('email')}}>
           </div>
           <div class="mb-14">
-            <input class="block w-full lg:w-4/5 px-2 py-2 mb-2 text-sm bg-white border border-blue-300 rounded login-input" placeholder="パスワード" name="password" type="password">
+            <input class="block w-full px-2 py-2 mb-2 text-sm bg-white border border-blue-300 rounded login-input" placeholder="パスワード" name="password" type="password">
         </div>
           <button type="submit" class="block w-3/5 p-4 text-center text-xs text-white font-semibold leading-none bg-blue-500 hover:bg-blue-400 rounded login-btn">ログイン</button>
           </form>

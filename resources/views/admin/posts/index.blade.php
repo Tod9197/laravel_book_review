@@ -4,6 +4,7 @@
   @php
     use Illuminate\Support\Str;
   @endphp
+
   <section class="mb-6 mt-8 pt-8 pb-4 bg-white rounded-md">
     <div class="flex items-center px-6 pb-4 mb-4 sm:mb-8 md:mb-10 border-d">
       <h2 class="sm:text-base md:text-lg lg:text-xl font-bold">投稿一覧</h2>
@@ -11,6 +12,7 @@
       <a href="{{route('admin.posts.create')}}" class="py-2 px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-green-500 hover:opacity-80 rounded-md">新規投稿</a>
         </div>
     </div>
+    @forelse($posts as $post)
     <div class="pt-4 px-2 md:px-6 overflow-x-auto">
       <table class="table-auto w-full">
         <thead class="">
@@ -74,6 +76,11 @@
         </tbody>
       </table>
     </div>
+    @empty
+    <tr>
+      <td colspan="6" class="text-center py-6">まだ投稿はありません</td>
+    </tr>
+    @endforelse
     {{-- ページネーション --}}
   {{$posts->onEachSide(2)->links()}}
   </section>
