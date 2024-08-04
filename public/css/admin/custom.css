@@ -7,6 +7,14 @@
     -webkit-background-clip: text;
     color: transparent;
 }
+
+/* 投稿がない時のテキスト */
+.text-no-post {
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
 @media (max-width: 1024px) {
     .title-logo {
         font-size: 1.8rem;
@@ -15,6 +23,9 @@
 @media (max-width: 768px) {
     .title-logo {
         font-size: 1.6rem; /* テキストサイズを12pxに設定 */
+    }
+    .text-no-post {
+        font-size: 1rem;
     }
 }
 @media (max-width: 480px) {
@@ -27,6 +38,44 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+}
+
+/* ユーザー登録画面 */
+.sign-up-title {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.sign-up-title::after {
+    color: #333;
+    opacity: 0.5;
+    display: block;
+    content: "Sign Up";
+    font-family: fantasy;
+    letter-spacing: 0.1em;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.sign-up-section {
+    width: 60%;
+    margin: auto;
+    margin-top: 2rem;
+}
+@media (max-width: 768px) {
+    .sign-up-section {
+        width: 80%;
+        margin: auto;
+        margin-top: 2rem;
+    }
+}
+@media (max-width: 480px) {
+    .sign-up-section {
+        width: 90%;
+        margin: auto;
+        margin-top: 2rem;
+    }
 }
 
 /* ログイン画面 */
@@ -44,17 +93,7 @@
 .login-title {
     position: relative;
 }
-/* .login-title::before {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    display: block;
-    content: "";
-    width: 20%;
-    height: 1px;
-    background-color: #333;
-    transform: translate(-50%, -50%);
-} */
+
 .login-title::after {
     color: #333;
     opacity: 0.5;
@@ -69,7 +108,7 @@
 }
 .login-box {
     width: 40%;
-    height: 60vh;
+    height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -114,7 +153,7 @@
     .main-height {
         height: auto;
         min-height: 100vh;
-        padding-bottom: 250px;
+        padding-bottom: 200px;
     }
 }
 

@@ -4,11 +4,11 @@
 <section class="py-6">
   <div class="container mx-auto">
     <div class="py-6 bg-white rounded-md">
-      <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
+      <form id="postForm" action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="flex px-6 pb-4 border-b items-center justify-between">
           <h3 class="sm:text-base md:text-lg lg:text-xl font-bold">書籍登録</h3>
-          <div><button type="submit" class="py-2 px-6 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-blue-400 rounded-md">投稿する</button>
+          <div><button type="submit" class="py-2 px-6 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-blue-500 hover:bg-blue-400 rounded-md">投稿する</button>
           </div>
         </div>
 
@@ -91,5 +91,12 @@
             previewImageNode.src = previewImageNode.dataset.noimage
         }
     })
+
+    //フォームのEnterキーで送信を防止
+    document.getElementById('postForm').addEventListener('keypress',function(e){
+      if(e.key === 'Enter' && e.target.type !== 'textarea'){
+        e.preventDefault();
+      }
+    });
 </script>
 @endsection

@@ -22,8 +22,10 @@
     </h1>
     <nav class="">
       <ul class="flex items-center justy-end list-none">
-        <li class="mr-5 text-xs md:text-sm lg:text-base">ユーザー名</li>
-        <li class="mr-5 text-xs md:text-sm lg:text-base"><img src="" alt="">画像</li>
+        <form action="{{route('admin.users.create')}}" method="get" class="mt-5">
+        @csrf
+        <button type="submit" class="py-2 px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-green-500 hover:opacity-80 rounded-md">ユーザー登録</button>
+        </form>
       </ul>
     </nav>
   </header>
@@ -33,13 +35,12 @@
     <div class="container px-4 mx-auto">
         <div class="login-box p-4 md:p-6 lg:p-8 bg-white rounded-lg shadow">
           <h1 class="mb-20 text-lg md:text-xl lg:text-2xl font-semibold text-center login-title">ログイン</h1>
-
           @if($errors->any())
           <div class="mb-8 py-4 px-6 border boreder-red-300 bg-red-50 rounded">
             <p class="text-red-400">ログインに失敗しました</p>
           </div>
           @endif
-          <form action="{{route('admin.login')}}" method="post">
+          <form id="loginForm" action="{{route('admin.login')}}" method="post">
           @csrf
 
           <div class="mb-8">
@@ -48,13 +49,20 @@
           <div class="mb-14">
             <input class="block w-full px-2 py-2 mb-2 text-sm bg-white border border-blue-300 rounded login-input" placeholder="パスワード" name="password" type="password">
         </div>
-          <button type="submit" class="block w-3/5 p-4 text-center text-xs text-white font-semibold leading-none bg-blue-500 hover:bg-blue-400 rounded login-btn">ログイン</button>
+          <button type="submit" class="block w-3/5 py-3 text-center text-xs md:text-sm lg:text-base text-white font-semibold leading-none bg-blue-500 hover:bg-blue-400 rounded login-btn">ログイン</button>
           </form>
         </div>
     </div>
   </section>
 
-
+  <script>
+     //フォームのEnterキーで送信を防止
+    document.getElementById('loginForm').addEventListener('keypress',function(e){
+      if(e.key === 'Enter' && e.target.type !== 'textarea'){
+        e.preventDefault();
+      }
+    });
+  </script>
 
 </body>
 </html>

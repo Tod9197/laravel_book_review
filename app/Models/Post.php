@@ -23,6 +23,6 @@ class Post extends Model
     }
 
     public function genres(){
-        return $this->belongsToMany(Genre::class,'post_genre')->withTimestamps();
+        return $this->belongsToMany(Genre::class,'post_genre','post_id','genre_id')->withTimestamps();
     }
 }

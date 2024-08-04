@@ -1,13 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TopController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+// トップ画面投稿一覧
+Route::get('/',[TopController::class,'index'])->name('top.index');
 
 
 // 投稿管理画面

@@ -1,0 +1,89 @@
+/* トップ画面 */
+/* メインビジュアル */
+.top-mv {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("/images/index/bookshelves.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.top-mv::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 115, 221, 0.4);
+    pointer-events: none;
+    z-index: 10;
+}
+.top-mv-box {
+    position: absolute;
+    width: 90%;
+    height: auto;
+    background-color: white;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.top-mv-title {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    font-weight: 600;
+    background: linear-gradient(90deg, #00c6ff 20%, #0072ff 50%, #00ff72 80%);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.top-mv-sutitle {
+    line-height: 1.8;
+}
+.top-mv-sutitle span {
+    background: linear-gradient(
+        transparent 40%,
+        yellow 40% 90%,
+        transparent 90%
+    );
+}
+.top-my-img {
+    width: 200px;
+    height: 100%;
+    aspect-ratio: 200/190;
+}
+
+.top-mv-text {
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* フロントエンドセクション */
+.top-post-section {
+    width: 100%;
+    height: auto;
+}
+.top-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.top-list-item {
+    width: calc((100% / 3) - 1rem);
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+.top-list-item:nth-child(3n) {
+    margin-right: 0;
+}
+.top-list-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}

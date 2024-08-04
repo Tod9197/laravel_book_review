@@ -12,7 +12,7 @@
       <a href="{{route('admin.posts.create')}}" class="py-2 px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-green-500 hover:opacity-80 rounded-md">新規投稿</a>
         </div>
     </div>
-    @forelse($posts as $post)
+
     <div class="pt-4 px-2 md:px-6 overflow-x-auto">
       <table class="table-auto w-full">
         <thead class="">
@@ -26,63 +26,60 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($posts as $post)
+          @forelse($posts as $post)
           <tr class="border-b border-gray-100">
-          <td class="flex py-6">
-            @if($post->img_path)
-            <img src="{{asset('storage/'. $post->img_path)}}" alt="{{$post->title}}の画像" class="w-14 md:w-18 lg:w-20 h-14 md:h-18 lg:h-20 rounded">
-            @else 
-            <img src="/images/admin/noimage.jpg" alt="No image" class="w-20 h-20 rounded">
-            @endif
-          </td>
-          <td class="font-medium text-center responsive-text responsive-padding">{{ Str::limit($post->title,15,'...')}}</td>
-          <td class="font-medium text-center responsive-text responsive-padding">{{$post->category->name}}</td>
-          <td class="font-medium text-center hidden sm:table-cell responsive-text"> 
-            @php
-              $genreCount = $post->genres->count();
-            @endphp
-
+            <td class="flex py-6">
+              @if($post->img_path)
+              <img src="{{asset('storage/'. $post->img_path)}}" alt="{{$post->title}}の画像" class="w-14 md:w-18 lg:w-20 h-14 md:h-18 lg:h-20 rounded">
+              @else 
+              <img src="/images/admin/noimage.jpg" alt="No image" class="w-20 h-20 rounded">
+              @endif
+            </td>
+            <td class="font-medium text-center responsive-text responsive-padding">{{ Str::limit($post->title, 15, '...') }}</td>
+            <td class="font-medium text-center responsive-text responsive-padding">{{$post->category->name}}</td>
+            <td class="font-medium text-center hidden sm:table-cell responsive-text"> 
+              @php
+                $genreCount = $post->genres->count();
+              @endphp
               @if($genreCount > 3)
                 @foreach($post->genres->take(3) as $genre)
                   {{$genre->name}}<br>
-                @if(!$loop->last)
-                  
-                @endif
-              @endforeach
-              ...
-            @else 
-              @foreach($post->genres as $genre)
-                {{$genre->name}}<br>
-                @if(!$loop->last)
-                  
-                @endif
-              @endforeach
-            @endif
-          </td>
-          <td class="font-medium text-center hidden sm:table-cell responsive-text">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d')}}</td>
-          <td> 
-            <div class="block" style="margin-top: 25px">
-              <a href="{{route('admin.posts.edit', ['post' => $post])}}" class="w-14 md:w-18 lg:w-20 py-1 lg:text-base md:text-sm block text-center text-white font-semibold bg-gray-700 hover:bg-blue-500 rounded-md responsive-text" style="margin:auto">編集</a>
-            <form class="text-center mt-2" action="{{route('admin.posts.destroy',['post' => $post])}}" method="post" onsubmit="return confirmDelete()">
-              @csrf
-              @method('DELETE')
-            <button type="submit" class="w-14 md:w-18 lg:w-20 py-1 lg:text-base md:text-sm text-white font-semibold bg-red-500 hover:bg-red-400 rounded-md responsive-text">削除</button>
-            </form>
-            </div>
-          </td>
+                  @if(!$loop->last)
+                    
+                  @endif
+                @endforeach
+                ...
+              @else 
+                @foreach($post->genres as $genre)
+                  {{$genre->name}}<br>
+                  @if(!$loop->last)
+                    
+                  @endif
+                @endforeach
+              @endif
+            </td>
+            <td class="font-medium text-center hidden sm:table-cell responsive-text">{{ \Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</td>
+            <td> 
+              <div class="block" style="margin-top: 25px">
+                <a href="{{route('admin.posts.edit', ['post' => $post])}}" class="w-14 md:w-18 lg:w-20 py-1 lg:text-base md:text-sm block text-center text-white font-semibold bg-gray-700 hover:bg-blue-500 rounded-md responsive-text" style="margin:auto">編集</a>
+                <form class="text-center mt-2" action="{{route('admin.posts.destroy',['post' => $post])}}" method="post" onsubmit="return confirmDelete()">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="w-14 md:w-18 lg:w-20 py-1 lg:text-base md:text-sm text-white font-semibold bg-red-500 hover:bg-red-400 rounded-md responsive-text">削除</button>
+                </form>
+              </div>
+            </td>
           </tr>
-          </a>
-          @endforeach
+          @empty
+          <tr>
+            <td colspan="6" class="text-no-post text-center pt-16 pb-6">まだ投稿はありません</td>
+          </tr>
+          @endforelse
         </tbody>
       </table>
     </div>
-    @empty
-    <tr>
-      <td colspan="6" class="text-center py-6">まだ投稿はありません</td>
-    </tr>
-    @endforelse
+
     {{-- ページネーション --}}
-  {{$posts->onEachSide(2)->links()}}
+    {{$posts->onEachSide(2)->links()}}
   </section>
 @endsection
-

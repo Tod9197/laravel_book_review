@@ -50,7 +50,6 @@ class AdminPostController extends Controller
         // カテゴリーとジャンル紐付け
         $post->category()->associate($validated['category_id']);
         $post->genres()->sync($validated['genres'] ?? []);   
-        $post->save();
         return to_route('admin.posts.index')->with('success','投稿しました');
     }
 
