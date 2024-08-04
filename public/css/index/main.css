@@ -1,5 +1,9 @@
 /* トップ画面 */
 /* メインビジュアル */
+ul,
+li {
+    list-style: none;
+}
 .top-mv {
     position: relative;
     width: 100%;
@@ -61,24 +65,32 @@
     line-height: 1.8;
 }
 
-/* フロントエンドセクション */
+/* 投稿セクション */
 .top-post-section {
     width: 100%;
     height: auto;
 }
+.top-post-title {
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+}
 .top-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(calc((100% / 4) - 1rem), 1fr)
+    );
+    gap: 1rem; /* アイテム間のスペース */
 }
 .top-list-item {
-    width: calc((100% / 3) - 1rem);
+    width: 100%;
     margin-right: 1rem;
     margin-bottom: 2rem;
     height: auto;
     border: 1px solid #eee;
     border-radius: 10px;
 }
-.top-list-item:nth-child(3n) {
+.top-list-item:nth-child(4n) {
     margin-right: 0;
 }
 .top-list-img {
@@ -86,4 +98,19 @@
     height: auto;
     object-fit: cover;
     border-radius: 10px;
+    aspect-ratio: 411/308;
+}
+.top-list-genre {
+    display: inline-block;
+    padding: 0.1rem 0.7rem;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: #eee;
+}
+.category-btn {
+    width: 30%;
+    margin: auto;
+    background: linear-gradient(90deg, #00c6ff 20%, #0072ff 50%, #00ff72 80%);
+    -webkit-background-clip: text;
+    color: transparent;
 }
