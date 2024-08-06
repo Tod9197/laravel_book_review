@@ -32,7 +32,7 @@ li {
 }
 .top-mv-box {
     position: absolute;
-    width: 90%;
+    width: 80%;
     height: auto;
     background-color: white;
     z-index: 100;
@@ -60,15 +60,80 @@ li {
         transparent 90%
     );
 }
+.top-my-img-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.top-mv-flex {
+    display: flex;
+    flex-direction: column;
+}
 .top-my-img {
-    width: 200px;
+    width: calc((100% / 3) - 1rem);
     height: 100%;
-    aspect-ratio: 200/190;
+    aspect-ratio: 200/130;
+    margin-right: 1rem;
+}
+.top-my-img:nth-child(3n) {
+    margin-right: 0;
 }
 
 .top-mv-text {
     text-align: left;
     line-height: 1.8;
+}
+.top-mv-list {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+}
+.top-mv-list-item {
+    display: flex;
+    color: #000;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.check-img {
+    width: 1.2rem;
+    margin-right: 0.5rem;
+}
+.list-item-text {
+    font-size: 16px;
+}
+@media (max-width: 1024px) {
+    .list-item-text {
+        font-size: 12px;
+    }
+    .top-mv-box {
+        width: 90%;
+    }
+    .top-my-img {
+        margin-right: 1rem;
+    }
+    .top-mv {
+        height: 80vh;
+    }
+}
+@media (max-width: 768px) {
+    .list-item-text {
+        font-size: 12px;
+    }
+    .top-my-img-flex {
+        margin-right: auto;
+        margin-bottom: 1rem;
+    }
+    .top-mv-list {
+        margin-right: auto;
+    }
+    .top-mv {
+        height: 70vh;
+    }
+}
+@media (max-width: 480px) {
+    .top-my-img-flex {
+        margin-bottom: 2rem;
+    }
 }
 
 /* 投稿セクション */

@@ -27,7 +27,7 @@ class AuthController extends Controller
             //セッションを再生成する処理(セキュリティ対策)
             $request->session()->regenerate();
 
-            return redirect()->intended('/admin/posts');
+            return redirect()->intended('/');
         }
             // ログイン情報が正しくない場合のみ実行される処理(returnすると以降の処理は実行されない)
             //一つ前のページ(ログイン画面)にリダイレクト
@@ -46,6 +46,6 @@ class AuthController extends Controller
         // セッション無効化を再生成(セキュリティ対策)
         $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login');
+        return redirect()->route('top.index');
     }
 }

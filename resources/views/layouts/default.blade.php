@@ -18,7 +18,7 @@
 <body class="antialiased text-body font-body">
 
   {{-- 共通ヘッダー(PC) --}}
-  <header class="px-4 sm:px-8 lg:px-14 py-4 flex justify-between items-center border-b border-r-indigo-300 shadow-sm">
+  <header class="px-4 sm:px-8 lg:px-14 py-2 md:py-4 flex justify-between items-center border-b border-r-indigo-300 shadow-sm">
     <h1 class="title-logo">
       <a href="/">Engineer<br>Book Club</a>
     </h1>
@@ -27,11 +27,21 @@
         @auth
         <li class="mr-5 text-xs md:text-sm lg:text-base">{{\Auth::user()->name}}</li>
         <li class="mr-5 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{asset('storage/'. \Auth::user()->img_path)}}" alt="ユーザー画像"></li>
+        <li class="mr-5 text-xs md:text-sm lg:text-base">
+          <a href="{{route('admin.posts.index')}}" class="hover:opacity-80">
+          <img class="mypage-img" src="/images/index/mypage.png" alt="ユーザー画像">
+          <p class="text-xs hover:opacity-80">My Page</p>
+          </a>
+        </li>
         @endauth
         @guest
-        <form class="mt-5" action="{{route('admin.login')}}" method="get">
+        <form class="m-0 md:mt-5" action="{{route('admin.users.create')}}" method="get">
           @csrf
-          <button type="submit" class="py-2 px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-blue-500 hover:bg-blue-400 rounded-md">ログイン</button>
+          <button type="submit" class="py-2 px-2 md:px-4 mr-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-green-500 hover:bg-green-400 rounded-md">ユーザー登録</button>
+        </form>
+        <form class="m-0 md:mt-5" action="{{route('admin.login')}}" method="get">
+          @csrf
+          <button type="submit" class="py-2 px-2 md:px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-blue-500 hover:bg-blue-400 rounded-md">ログイン</button>
         </form>
         @endguest
       </ul>

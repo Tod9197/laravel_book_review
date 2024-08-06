@@ -39,6 +39,12 @@
     height: 3rem;
     border-radius: 50%;
 }
+.mypage-img {
+    width: 2.4rem;
+    cursor: pointer;
+    opacity: 0.8;
+    margin-left: 5px;
+}
 
 /* ユーザー登録画面 */
 .sign-up-title {

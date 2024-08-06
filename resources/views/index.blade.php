@@ -2,13 +2,32 @@
 
 @section('content')
   <main class="top-mv">
-    <div class="top-mv-box pt-10 pb-14 px-8">
+    <div class="top-mv-box pt-6 pb-4 px-8">
       <h2 class="top-mv-title">Engineer Book Club</h2>
-      <h3 class="top-mv-sutitle text-base font-semibold text-center mb-6"><span>WEBエンジニア・WEBデザイナー</span>を目指している方への書籍紹介アプリ</h3>
-      {{-- <div class="flex justify-between">
+      <h3 class="top-mv-sutitle text-sm lg:text-lg font-semibold text-center mb-4 md:mb-10"><span>WEBエンジニア・WEBデザイナー</span>を目指している方への書籍紹介</h3>
+      <div class="top-mv-flex items-center">
+        <div class="top-my-img-flex">
         <img class="top-my-img" src="{{asset('images/index/book01.jpg')}}" alt="プログラミング書籍">
-      <p class="top-mv-text px-8">主に初学者や初心者、未経験者を対象にした書籍を紹介していきます。<br>プログラミングの学習を始めるにあたり、最初から公式ドキュメントやベテランのエンジニアが読むような本を読むと挫折の可能性が高くなります。<br>近年はとてもわかりやすくかつ力がつく本が増えてきているので、<br>まずはそういった本で基本を身につけ、少しずつ難しい本にチャレンジしていきましょう。</p>
-      </div> --}}
+        <img class="top-my-img" src="{{asset('images/index/book02.jpg')}}" alt="プログラミング書籍">
+        <img class="top-my-img" src="{{asset('images/index/book03.jpg')}}" alt="プログラミング書籍">
+        </div>
+        <ul class="top-mv-list">
+          <li class="top-mv-list-item">
+            <img class="check-img" src="{{asset('images/index/check01.png')}}" alt="チェック">
+            <p class="list-item-text">主に初学者、初心者に向けての学習書を紹介</p>
+          </li>
+          <li class="top-mv-list-item"><img class="check-img" src="{{asset('images/index/check01.png')}}" alt="チェック">
+            <p class="list-item-text">わかりやすく丁寧、挫折しにくい</p>
+            </li>
+          <li class="top-mv-list-item"><img class="check-img" src="{{asset('images/index/check01.png')}}" alt="チェック">
+            <p class="list-item-text">しっかり基礎から学べる</p>
+          </li>
+          <li class="top-mv-list-item"><img class="check-img" src="{{asset('images/index/check01.png')}}" alt="チェック">
+            <p class="list-item-text">中級者にも学びのある本多数</p>
+            </li>
+        </ul>
+        
+      </div>
     </div>
   </main>
 
