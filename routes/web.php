@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\AuthController;
 Route::get('/',[TopController::class,'index'])->name('top.index');
 //カテゴリー別の一覧ページ
 Route::get('/categroy/{id}',[TopController::class,'categoryPage'])->name('category.index');
+// 各投稿の詳細ページ
+Route::get('/post/{id}',[TopController::class,'show'])->name('post.show');
 
 
 // 投稿管理画面

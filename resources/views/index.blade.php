@@ -31,14 +31,14 @@
     </div>
   </main>
 
-<div class="top-inner px-4 sm:px-8 lg:px-14 mb-14">
+<div class="top-inner px-4 sm:px-8 lg:px-14 mb-16">
     {{-- フロントエンドの投稿 --}}
   <section class="top-post-section pt-12 mb-8">
     <h2 class="text-xl md:text-2xl font-semibold mb-10 sm:mb-14 text-center title-frontend">フロントエンド</h2>
     <ul class="top-list">
     @forelse($frontendPosts as $post)
     <li class="top-list-item hover:opacity-70">
-      <a href="">
+      <a href="{{route('post.show',$post->id)}}">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
       <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 md:mb-2 m-2">{{Str::limit($post->title,15)}}</h3>
       <div class="flex items-center justify-between p-2 mb-0 md:mb-2 flex-wrap">

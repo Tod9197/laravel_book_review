@@ -17,6 +17,7 @@
 </head>
 <body class="antialiased text-body font-body">
 
+<div class="wrapper">
   {{-- 共通ヘッダー(PC) --}}
   <header class="px-4 sm:px-8 lg:px-14 py-2 md:py-4 flex justify-between items-center border-b border-r-indigo-300 shadow-sm">
     <h1 class="title-logo">
@@ -50,5 +51,16 @@
   {{-- 共通ヘッダーここまで(PC) --}}
 
   {{-- ページ毎の個別内容 --}}
+  <div class="content">
   @yield('content')
+  </div>
   {{-- ページ毎の個別内容ここまで --}}
+
+  {{-- 共通フッター --}}
+  <footer class="footer bg-gray-800 text-white py-4 mt-8">
+    <div class="container mx-auto text-center">
+      <p class="footer-copy text-xs md:text-base">&copy; 2024 Engineer Book Club. All rights reserved.</p>
+    </div>
+  </footer>
+  {{-- 共通フッターここまで --}}
+</div>

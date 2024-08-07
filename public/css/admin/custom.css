@@ -75,12 +75,19 @@
         margin: auto;
         margin-top: 2rem;
     }
+    .mypage-img {
+        width: 2rem;
+    }
 }
 @media (max-width: 480px) {
     .sign-up-section {
         width: 90%;
         margin: auto;
         margin-top: 2rem;
+    }
+    .mypage-img {
+        width: 1.6rem;
+        margin-left: 10px;
     }
 }
 

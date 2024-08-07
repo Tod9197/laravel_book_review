@@ -57,8 +57,15 @@ class TopController extends Controller
         $posts = Post::with('genres')
         ->where('category_id',$id)
         ->latest('updated_at')
-        ->paginate('10');
+        ->paginate('12');
 
         return view('category',['posts' => $posts, 'category' => $category ]);
+    }
+
+    //各投稿の詳細ページ
+    public function show($id){
+        $post = Post::with('genres','user')->findOrFail($id);
+        $category = $post->category;
+        return view('post.show',['post' => $post,'category' => $category]);
     }
 }
