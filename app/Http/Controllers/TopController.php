@@ -66,6 +66,17 @@ class TopController extends Controller
     public function show($id){
         $post = Post::with('genres','user')->findOrFail($id);
         $category = $post->category;
-        return view('post.show',['post' => $post,'category' => $category]);
+
+        // 同じカテゴリーに属する他の投稿を取得(現在の投稿は除外)
+        $relatedPosts = Post::with('genres','user')
+        ->where('category_id',$category->id)
+        ->where('id','!=',$id)//現在の投稿は除外
+        ->latest('updated_at')->limit(4)->get();
+
+        return view('post.show',[
+            'post' => $post,
+            'category' => $category,
+            'relatedPosts' => $relatedPosts
+        ]);
     }
 }

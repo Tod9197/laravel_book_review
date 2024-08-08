@@ -1,6 +1,6 @@
 <html lang="ja">
 <head>
-    <title>投稿管理画面</title>
+    <title>Engineer Book Club</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet"

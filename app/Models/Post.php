@@ -15,7 +15,9 @@ class Post extends Model
         'url',
         'content',
         'user_id',
-        'category_id'
+        'category_id',
+        'author',//2024/08/08追加
+        'publisher'//2024/08/08追加
     ];
 
     public function user(){

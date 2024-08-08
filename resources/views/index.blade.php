@@ -40,8 +40,8 @@
     <li class="top-list-item hover:opacity-70">
       <a href="{{route('post.show',$post->id)}}">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 md:mb-2 m-2">{{Str::limit($post->title,15)}}</h3>
-      <div class="flex items-center justify-between p-2 mb-0 md:mb-2 flex-wrap">
+      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
@@ -72,8 +72,8 @@
     <li class="top-list-item hover:opacity-70">
       <a href="">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-    <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 md:mb-2 m-2">{{Str::limit($post->title,15)}}</h3>
-    <div class="flex items-center justify-between p-2 mb-0 md:mb-2 flex-wrap">
+    <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+    <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
@@ -104,8 +104,8 @@
     <li class="top-list-item hover:opacity-70">
       <a href="">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 md:mb-2 m-2">{{Str::limit($post->title,15)}}</h3>
-      <div class="flex items-center justify-between p-2 mb-0 md:mb-2 flex-wrap">
+      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
@@ -136,8 +136,8 @@
     <li class="top-list-item  hover:opacity-70">
       <a href="">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 md:mb-2 m-2">{{Str::limit($post->title,15)}}</h3>
-      <div class="flex items-center justify-between p-2 mb-0 md:mb-2 flex-wrap">
+      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
@@ -168,8 +168,8 @@
     <li class="top-list-item hover:opacity-70">
       <a href="">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 md:mb-2 m-2">{{Str::limit($post->title,15)}}</h3>
-      <div class="flex items-center justify-between p-2 mb-0 md:mb-2 flex-wrap">
+      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
