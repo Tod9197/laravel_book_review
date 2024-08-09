@@ -192,4 +192,5 @@
   <a class="block text-center text-white bg-green-500 hover:opacity-80 font-semibold category-btn" href="{{route('category.index',5)}}">Web技術全般の書籍一覧を見る</a>
   {{-- web技術全般/その他の投稿ここまで --}}
 </div>
+
 @endsection

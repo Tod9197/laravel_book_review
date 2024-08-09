@@ -42,14 +42,33 @@
   {{-- ログイン時 --}}
   @auth
   <div class="hidden lg:block w-1/5 border-r border-r-indigo-300 py-14 h-5/5">
-    <h2 class="text-xl text-center font-semibold mb-10">投稿管理画面</h2>
+    <h2 class="text-2xl text-center font-semibold mb-10 mypage-title">My Page</h2>
     <ul class="flex flex-col justify-start">
-      <li class="text-center hover:text-red-500 nav-item"><a class="" href="{{route('admin.posts.create')}}">新規投稿</a></li>
-      <li class="text-center hover:text-red-500 nav-item"><a href="">プロフィール変更</a></li>
-      <li class="text-center hover:text-red-500 nav-item"><a href="">パスワード変更</a></li>
-      <li class="text-center hover:text-red-500 nav-item"><a href="">退会</a></li>
+      <li class="text-center hover:text-red-500 nav-item">
+        <a class="hover:opacity-80" href="{{route('admin.posts.create')}}">
+          <img class="mypage-contents-img" src="/images/admin/postadd01.png" alt="新規投稿画像">
+          <p>新規投稿</p>
+        </a>
+      </li>
+      <li class="text-center hover:text-red-500 nav-item">
+        <a class="hover:opacity-80" href="">
+          <img class="mypage-contents-img" src="/images/admin/person02.png" alt="プロフィール変更画像">
+          <p>プロフィール変更</p>
+        </a></li>
+      <li class="text-center hover:text-red-500 nav-item">
+        <a href="">
+        <img class="mypage-contents-img" src="/images/admin/password01.png" alt="パスワード画像">
+          <p>パスワード変更</p>
+        </a></li>
+      <li class="text-center hover:text-red-500 nav-item">
+        <a href="">
+          <img class="mypage-contents-img" src="/images/admin/person03.png" alt="退会画像">
+          <p>退会</p>
+        </a>
+      </li>
       <form action="{{route('admin.logout')}}" method="post">
         @csrf
+      <img class="mypage-contents-img -logout" src="/images/admin/logout01.png" alt="ログアウト画像">
       <button type="submit" class="text-center hover:text-red-500 nav-item">ログアウト</button>
       </form>
     </ul>
@@ -121,15 +140,33 @@
   @auth
   <section class="under-nav border-t border-r-indigo-300 shadow-sm">
     <div class="p-4 sm:p-8">
-    <h2 class="sm:text-base md:text-lg lg:text-xl text-left font-semibold mb-4 sm:mb-10">投稿管理画面</h2>
+    <h2 class="text-xl lg:text-2xl text-left font-semibold mb-4 sm:mb-6 mypage-title">My Page</h2>
     <ul class="under-nav-flex">
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="{{route('admin.posts.create')}}">新規投稿</a></li>
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">プロフィール変更</a></li>
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">パスワード変更</a></li>
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">退会</a></li>
+      <li class="text-center mr-2 md:mr-4 mb-4 text-base hover:text-red-500 under-nav-itam"><a href="{{route('admin.posts.create')}}">
+        <img class="mypage-contents-img -responsive" src="/images/admin/postadd01.png" alt="新規投稿画像">
+        新規投稿
+      </a>
+    </li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam">
+        <a href="">
+      <img class="mypage-contents-img -responsive" src="/images/admin/person02.png" alt="プロフィール変更画像">
+        プロフィール変更</a>
+      </li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">
+        <img class="mypage-contents-img -responsive" src="/images/admin/password01.png" alt="パスワード画像">
+        パスワード変更
+      </a></li>
+      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">
+        <img class="mypage-contents-img -responsive" src="/images/admin/person03.png" alt="退会画像">
+        退会
+      </a>
+    </li>
       <form action="{{route('admin.logout')}}" method="post">
         @csrf
-      <button type="submit" class="text-left hover:text-red-500 nav-item">ログアウト</button>
+      <div class="flex items-center">
+      <img class="mypage-contents-img -responsiveLogout " src="/images/admin/logout01.png" alt="ログアウト画像">
+      <button type="submit" class="text-left text-base hover:text-red-500 nav-item -responsive">ログアウト</button>
+      </div>
       </form>
     </ul>
     </div>

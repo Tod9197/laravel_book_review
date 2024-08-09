@@ -30,6 +30,18 @@
             <input id="title" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-xs sm:text-sm bg-white border rounded" name="title" type="text" value={{old('title',$post->title)}}>
           </div>
 
+          {{-- 2024.08.09追加 --}}
+          <div class="mb-6">
+            <label class="block text-xs sm:text-sm font-medium mb-4" for="title">著者<span class="text-gray-500 ml-2 text-xs">(任意)</span></label>
+            <input id="author" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="author" type="text" value={{old('author',$post->author)}}>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-xs sm:text-sm font-medium mb-4" for="title">出版社<span class="text-gray-500 ml-2 text-xs">(任意)</span></label>
+            <input id="publisher" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="publisher" type="text" value={{old('publisher',$post->publisher)}}>
+          </div>
+          {{-- 2024.08.09追加ここまで --}}
+
           <div class="mb-6">
             <label class="block text-xs sm:text-sm font-medium mb-4" for="title">書籍URL<span class="text-gray-500 ml-2 text-xs">(任意:AmazonなどのURL)</span></label>
             <input id="url" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="url" type="text" value={{old('url',$post->url)}}>

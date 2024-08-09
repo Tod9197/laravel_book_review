@@ -48,4 +48,9 @@ class AuthController extends Controller
 
         return redirect()->route('top.index');
     }
+
+    // 退会確認画面
+    public function withdraw(){
+        return view('admin.users.withdraw');
+    }
 }

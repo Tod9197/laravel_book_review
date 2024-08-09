@@ -33,6 +33,11 @@
         font-size: 1.4rem; /* テキストサイズを10pxに設定 */
     }
 }
+.mypage-title {
+    background: linear-gradient(90deg, #00c6ff, #0072ff, #00ff72);
+    -webkit-background-clip: text;
+    color: transparent;
+}
 
 .user-img {
     width: 3rem;
@@ -44,6 +49,26 @@
     cursor: pointer;
     opacity: 0.8;
     margin-left: 5px;
+}
+
+.mypage-contents-img {
+    display: inline-block;
+    width: 1.8rem;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.mypage-contents-img.-responsive {
+    width: 1.6rem;
+    padding-bottom: 0.2rem;
+}
+
+.mypage-contents-img.-logout {
+    display: block;
+    margin: auto;
+}
+.mypage-contents-img.-responsiveLogout {
+    width: 1.5rem;
+    display: block;
 }
 
 /* ユーザー登録画面 */
@@ -202,6 +227,9 @@
     margin: auto;
     margin-bottom: 2rem;
 }
+.nav-item.-responsive {
+    margin-bottom: 0;
+}
 
 .nav-item::after {
     content: "";
@@ -238,6 +266,7 @@
 }
 .under-nav-flex {
     display: flex;
+    flex-wrap: wrap;
 }
 @media (max-width: 480px) {
     .under-nav {

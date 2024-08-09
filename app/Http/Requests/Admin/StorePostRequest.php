@@ -32,6 +32,8 @@ class StorePostRequest extends FormRequest
                 'mimes:jpeg,jpg,png',//形式はjpegかpng
                 'dimensions:min_width=300,min_height=300,max_width=2000,max_height=2000', // 画像の解像度が300px * 300px ~ 2000px * 2000px
             ],
+            'author' => ['nullable','max:255'],//2024/08/09追加
+            'publisher' => ['nullable','max:255'],//2024/08/09追加
             'url' => ['nullable','url'],
             'content' => ['required','max:20000'],
             'genres.*' => ['distinct','exists:genres,id'],

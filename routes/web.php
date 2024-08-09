@@ -23,22 +23,29 @@ Route::get('/admin/posts',[AdminPostController::class,'index'])->name('admin.pos
 // 新規作成ページ
 Route::get('/admin/posts/create',[AdminPostController::class,'create'])->name('admin.posts.create')->middleware('auth');
 // 新規登録
-Route::post('/admin/posts',[AdminPostController::class,'store'])->name('admin.posts.store');
+Route::post('/admin/posts',[AdminPostController::class,'store'])->name('admin.posts.store')->middleware('auth');
 // 編集画面
 Route::get('/admin/posts/{post}',[AdminPostController::class,'edit'])->name('admin.posts.edit')->middleware('auth');
 //更新
-Route::put('/admin/posts/{post}',[AdminPostController::class,'update'])->name('admin.posts.update');
+Route::put('/admin/posts/{post}',[AdminPostController::class,'update'])->name('admin.posts.update')->middleware('auth');
 // 削除
-Route::delete('/admin/posts/{post}',[AdminPostController::class,'destroy'])->name('admin.posts.destroy');
+Route::delete('/admin/posts/{post}',[AdminPostController::class,'destroy'])->name('admin.posts.destroy')->middleware('auth');
 
 
 //認証
 //ユーザー登録画面表示
-Route::get('/admin/users/create',[UserController::class,'create'])->name('admin.users.create');
+Route::get('/admin/users/create',[UserController::class,'create'])->name('admin.users.create')->middleware('guest');
+// 不正なGETリクエストで404エラーを表示
+Route::get('/admin/users', function() {
+    abort(404);
+});
 //ユーザー登録
-Route::post('/admin/users',[UserController::class,'store'])->name('admin.users.store');
+Route::post('/admin/users',[UserController::class,'store'])->name('admin.users.store')->middleware('guest');
 //ログイン
 Route::get('/admin/login',[AuthController::class,'showLoginForm'])->name('admin.login')->middleware('guest');
 Route::post('/admin/login',[AuthController::class,'login']);
 // ログアウト
-Route::post('/admin/logout',[AuthController::class,'logout'])->name('admin.logout');
+Route::post('/admin/logout',[AuthController::class,'logout'])->name('admin.logout')
+->middleware('auth');
+// 退会確認画面
+Route::get('/admin/users/withdraw',[AuthController::class,'withdraw'])->name('admin.users.withdraw')->middleware('auth');
