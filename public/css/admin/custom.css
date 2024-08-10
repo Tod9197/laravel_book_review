@@ -37,6 +37,19 @@
     background: linear-gradient(90deg, #00c6ff, #0072ff, #00ff72);
     -webkit-background-clip: text;
     color: transparent;
+    position: relative;
+}
+.mypage-title::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 40%;
+    height: 1px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #00c6ff, #0072ff, #00ff72);
+    color: transparent;
 }
 
 .user-img {
@@ -58,7 +71,7 @@
     opacity: 0.8;
 }
 .mypage-contents-img.-responsive {
-    width: 1.6rem;
+    width: 1.8rem;
     padding-bottom: 0.2rem;
 }
 
@@ -69,6 +82,19 @@
 .mypage-contents-img.-responsiveLogout {
     width: 1.5rem;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .user-img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .user-img {
+        width: 2rem;
+        height: 2rem;
+    }
 }
 
 /* ユーザー登録画面 */
@@ -191,7 +217,7 @@
     .main-height {
         height: auto;
         min-height: 100vh;
-        padding-bottom: 200px;
+        /* padding-bottom: 200px; */
     }
 }
 
@@ -247,37 +273,101 @@
     width: 50%;
 }
 
+.logout-btn {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin: auto;
+}
+
+.logout-btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-image: url("/images/admin/logout01.png");
+    background-size: contain; /* 画像サイズを調整 */
+    background-repeat: no-repeat;
+}
+
 /* 1024px以下のナビ */
 .under-nav {
     display: none;
 }
 
+/* ハンバーガーメニュー */
+.hamburger-button {
+    display: none;
+}
+.hamburger-button-img {
+    display: none;
+}
+
+/* 管理メニューレスポンシブ */
 @media (max-width: 1024px) {
     .under-nav {
         width: 100%;
-        height: 200px;
+        height: 100%;
         display: block;
         position: fixed;
-        bottom: 0;
+        top: 90px;
         left: 0;
         background-color: white;
         z-index: 100;
-    }
-}
-.under-nav-flex {
-    display: flex;
-    flex-wrap: wrap;
-}
-@media (max-width: 480px) {
-    .under-nav {
-        height: 250px;
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(100%);
     }
     .under-nav-flex {
+        display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
     }
-    .under-nav-itam {
-        text-align: left;
-        margin-bottom: 0.5rem;
+    .under-nav.show {
+        display: block;
+        transform: translateY(0);
+    }
+    .hamburger-button {
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 101;
+    }
+    .hamburger-button-img {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .under-nav {
+        top: 84px;
+    }
+    .hamburger-button {
+        top: 20px;
+    }
+    .hamburger-button-img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .mypage-title {
+        font-size: 20px;
+    }
+    .under-nav {
+        top: 76px;
+    }
+    .hamburger-button-img {
+        width: 2rem;
+        height: 2rem;
     }
 }
 
@@ -418,4 +508,66 @@
 }
 .page-item:last-child {
     margin-left: auto;
+}
+
+/* 退会画面 */
+.withdraw-section {
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+    background-color: #fff;
+}
+.withdraw-title {
+    border-bottom: 1px solid #eee;
+}
+.withdraw-text-span {
+    display: block;
+    margin: auto;
+}
+.withdraw-flex {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.withdraw-btn {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background-color: red;
+    margin-left: 2rem;
+}
+.back-btn {
+    display: inline-block;
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: #000;
+    border: 1px solid #ddd;
+}
+.back-btn:hover {
+    color: #fff;
+    background-color: #333;
+}
+@media (max-width: 768px) {
+    .withdraw-btn,
+    .back-btn {
+        font-size: 0.8rem;
+    }
+    .withdraw-btn {
+        margin-left: 1rem;
+    }
+}
+@media (max-width: 480px) {
+    .withdraw-flex {
+        flex-direction: column;
+    }
+    .withdraw-btn,
+    .back-btn {
+        width: 80%;
+        margin: auto;
+    }
+    .back-btn {
+        margin-bottom: 1rem;
+    }
 }

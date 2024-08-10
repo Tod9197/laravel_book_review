@@ -62,3 +62,15 @@ document.addEventListener("DOMContentLoaded", function () {
 function confirmDelete() {
     return confirm("投稿を完全に削除しますか？");
 }
+
+// 退会確認ボタン
+function confirmWithdraw() {
+    if (confirm("本当に退会しますか？投稿した記事は全て削除されます。")) {
+        document.getElementById("withdraw-form").submit();
+    }
+}
+// ハンバーガーメニュー
+function toggleMenu() {
+    const menu = document.querySelector(".under-nav");
+    menu.classList.toggle("show");
+}

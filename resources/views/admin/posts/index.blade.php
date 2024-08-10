@@ -32,7 +32,7 @@
               @if($post->img_path)
               <img src="{{asset('storage/'. $post->img_path)}}" alt="{{$post->title}}の画像" class="w-14 md:w-18 lg:w-20 h-14 md:h-18 lg:h-20 rounded">
               @else 
-              <img src="/images/admin/noimage.jpg" alt="No image" class="w-20 h-20 rounded">
+              <img src="/images/admin/noimage.jpg" alt="No image" class="w-14 md:w-18 lg:w-20 h-14 md:h-18 lg:h-20 rounded">
               @endif
             </td>
             <td class="font-medium text-center responsive-text responsive-padding">{{ Str::limit($post->title, 15, '...') }}</td>

@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('post_genre', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained();
-            $table->foreignId('genre_id')->constrained();
+            $table->foreignId('post_id')
+            ->constrained()
+            ->onDelete('cascade');//2024/08/10追加
+            $table->foreignId('genre_id')
+            ->constrained()
+            ->onDelete('cascade');//2024/08/10追加
             $table->timestamps();
         });
     }

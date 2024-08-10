@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/admin/tailwind/tailwind.min.css">
     <link rel="stylesheet" href="/css/admin/select2.min.css">
     <link rel="stylesheet" href="/css/admin/custom.css">
+    <link rel="stylesheet" href="/css/index/main.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
     <script src="/js/main.js"></script>
     <script src="/js/admin/jquery-3.6.0.slim.min.js"></script>
@@ -16,22 +17,30 @@
 <body class="antialiased text-body font-body">
 
   {{-- 共通ヘッダー(PC) --}}
-  <header class="px-4 sm:px-8 lg:px-14 py-4 flex justify-between items-center border-b border-r-indigo-300 shadow-sm">
+  <header class="px-4 sm:px-8 lg:px-14 pt-4 pb-2 flex justify-between items-center border-b border-r-indigo-300 shadow-sm">
     <h1 class="title-logo">
       <a href="/">Engineer<br>Book Club</a>
     </h1>
     <nav class="">
       <ul class="flex items-center justy-end list-none">
+        {{-- ログイン時 --}}
         @auth
-        <li class="mr-5 text-xs md:text-sm lg:text-base">{{\Auth::user()->name}}</li>
-        <li class="mr-5 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{asset('storage/'. \Auth::user()->img_path)}}" alt="ユーザー画像"></li>
+        <li class="mr-14 mt-1 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{ \Auth::user()->img_path ? asset('storage/' . \Auth::user()->img_path) : asset('images/admin/noimage.jpg') }}" alt="ユーザー画像"><span class="mt-1 text-xs md:text-sm lg:text-base">{{\Auth::user()->name}}</span></li>
+        
+        <div class="hamburger-button" onclick="toggleMenu()">
+          <img class="hamburger-button-img" src="/images/admin/menu01.png" alt="メニューアイコン">
+          <span class="mt-1 text-xs md:text-sm lg:text-base">Menu</span>
+        </div>
         @endauth
+        {{-- ログイン時ここまで --}}
+        {{-- 未ログイン時 --}}
         @guest
         <form class="mt-5" action="{{route('admin.login')}}" method="get">
           @csrf
           <button type="submit" class="py-2 px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-blue-500 hover:bg-blue-400 rounded-md">ログイン</button>
         </form>
         @endguest
+        {{-- 未ログイン時ここまで --}}
       </ul>
     </nav>
   </header>
@@ -46,29 +55,35 @@
     <ul class="flex flex-col justify-start">
       <li class="text-center hover:text-red-500 nav-item">
         <a class="hover:opacity-80" href="{{route('admin.posts.create')}}">
-          <img class="mypage-contents-img" src="/images/admin/postadd01.png" alt="新規投稿画像">
+          <img class="mypage-contents-img" src="/images/admin/postadd01.png" alt="新規投稿アイコン">
           <p>新規投稿</p>
         </a>
       </li>
       <li class="text-center hover:text-red-500 nav-item">
+        <a class="hover:opacity-80" href="{{route('admin.posts.index')}}">
+          <img class="mypage-contents-img" src="/images/admin/postindex.png" alt="投稿一覧アイコン">
+          <p>投稿一覧</p>
+        </a>
+      </li>
+      <li class="text-center hover:text-red-500 nav-item">
         <a class="hover:opacity-80" href="">
-          <img class="mypage-contents-img" src="/images/admin/person02.png" alt="プロフィール変更画像">
+          <img class="mypage-contents-img" src="/images/admin/person02.png" alt="プロフィール変更アイコン">
           <p>プロフィール変更</p>
         </a></li>
       <li class="text-center hover:text-red-500 nav-item">
         <a href="">
-        <img class="mypage-contents-img" src="/images/admin/password01.png" alt="パスワード画像">
+        <img class="mypage-contents-img" src="/images/admin/password01.png" alt="パスワード変更アイコン">
           <p>パスワード変更</p>
         </a></li>
       <li class="text-center hover:text-red-500 nav-item">
-        <a href="">
-          <img class="mypage-contents-img" src="/images/admin/person03.png" alt="退会画像">
+        <a href="{{route('admin.users.withdraw')}}">
+          <img class="mypage-contents-img" src="/images/admin/person03.png" alt="退会アイコン">
           <p>退会</p>
         </a>
       </li>
       <form action="{{route('admin.logout')}}" method="post">
         @csrf
-      <img class="mypage-contents-img -logout" src="/images/admin/logout01.png" alt="ログアウト画像">
+      <img class="mypage-contents-img -logout" src="/images/admin/logout01.png" alt="ログアウトアイコン">
       <button type="submit" class="text-center hover:text-red-500 nav-item">ログアウト</button>
       </form>
     </ul>
@@ -140,32 +155,36 @@
   @auth
   <section class="under-nav border-t border-r-indigo-300 shadow-sm">
     <div class="p-4 sm:p-8">
-    <h2 class="text-xl lg:text-2xl text-left font-semibold mb-4 sm:mb-6 mypage-title">My Page</h2>
+    <h2 class="text-2xl  sm:text-3xl text-center font-semibold mb-12 mt-4 mypage-title">My Page</h2>
     <ul class="under-nav-flex">
-      <li class="text-center mr-2 md:mr-4 mb-4 text-base hover:text-red-500 under-nav-itam"><a href="{{route('admin.posts.create')}}">
-        <img class="mypage-contents-img -responsive" src="/images/admin/postadd01.png" alt="新規投稿画像">
+      <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam"><a href="{{route('admin.posts.create')}}">
+        <img class="mypage-contents-img -responsive" src="/images/admin/postadd01.png" alt="新規投稿アイコン">
         新規投稿
       </a>
     </li>
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam">
+      <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam"><a href="{{route('admin.posts.index')}}">
+        <img class="mypage-contents-img -responsive" src="/images/admin/postindex.png" alt="投稿一覧アイコン">
+        投稿一覧
+      </a>
+    </li>
+      <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam">
         <a href="">
-      <img class="mypage-contents-img -responsive" src="/images/admin/person02.png" alt="プロフィール変更画像">
+      <img class="mypage-contents-img -responsive" src="/images/admin/person02.png" alt="プロフィール変更アイコン">
         プロフィール変更</a>
       </li>
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">
-        <img class="mypage-contents-img -responsive" src="/images/admin/password01.png" alt="パスワード画像">
+      <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam"><a href="">
+        <img class="mypage-contents-img -responsive" src="/images/admin/password01.png" alt="パスワードアイコン">
         パスワード変更
       </a></li>
-      <li class="text-center mr-2 md:mr-4 text-base hover:text-red-500 under-nav-itam"><a href="">
-        <img class="mypage-contents-img -responsive" src="/images/admin/person03.png" alt="退会画像">
+      <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam"><a href="{{route('admin.users.withdraw')}}">
+        <img class="mypage-contents-img -responsive" src="/images/admin/person03.png" alt="退会アイコン">
         退会
       </a>
     </li>
       <form action="{{route('admin.logout')}}" method="post">
         @csrf
       <div class="flex items-center">
-      <img class="mypage-contents-img -responsiveLogout " src="/images/admin/logout01.png" alt="ログアウト画像">
-      <button type="submit" class="text-left text-base hover:text-red-500 nav-item -responsive">ログアウト</button>
+      <button type="submit" class="text-base sm:text-xl text-center hover:text-red-500 logout-btn">ログアウト</button>
       </div>
       </form>
     </ul>
@@ -173,6 +192,15 @@
   </section>
   @endauth
   {{-- ログイン時ここま で --}}
+
+    {{-- 共通フッター --}}
+  <footer class="footer-admin bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p class="footer-copy text-xs md:text-base">&copy; 2024 Engineer Book Club. All rights reserved.</p>
+    </div>
+  </footer>
+  {{-- 共通フッターここまで --}}
+
 </body>
 </html>
 

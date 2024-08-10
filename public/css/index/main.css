@@ -27,6 +27,11 @@ body {
     position: absolute;
     bottom: 0;
 }
+.footer-admin {
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+}
 .footer-copy {
     background: linear-gradient(90deg, #00c6ff, #0072ff, #00ff72);
     -webkit-background-clip: text;

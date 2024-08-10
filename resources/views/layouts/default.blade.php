@@ -25,9 +25,10 @@
     </h1>
     <nav class="">
       <ul class="flex items-center justy-end list-none">
+        {{-- ログイン時 --}}
         @auth
         <li class="mr-5 text-xs md:text-sm lg:text-base">{{\Auth::user()->name}}</li>
-        <li class="mr-5 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{asset('storage/'. \Auth::user()->img_path)}}" alt="ユーザー画像"></li>
+        <li class="mr-5 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{ \Auth::user()->img_path ? asset('storage/' . \Auth::user()->img_path) : asset('images/admin/noimage.jpg') }}" alt="ユーザー画像"></li>
         <li class="mr-5 text-xs md:text-sm lg:text-base">
           <a href="{{route('admin.posts.index')}}" class="hover:opacity-80">
           <img class="mypage-img" src="/images/index/mypage.png" alt="ユーザー画像">
@@ -35,6 +36,8 @@
           </a>
         </li>
         @endauth
+        {{-- ログイン時ここまで --}}
+        {{-- 未ログイン時 --}}
         @guest
         <form class="m-0 md:mt-5" action="{{route('admin.users.create')}}" method="get">
           @csrf
@@ -45,13 +48,23 @@
           <button type="submit" class="py-2 px-2 md:px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-blue-500 hover:bg-blue-400 rounded-md">ログイン</button>
         </form>
         @endguest
+        {{-- 未ログイン時ここまで --}}
       </ul>
     </nav>
   </header>
   {{-- 共通ヘッダーここまで(PC) --}}
 
+
   {{-- ページ毎の個別内容 --}}
   <div class="content">
+
+    {{-- 退会時のメッセージ --}}
+    @if(session('success'))
+        <script>
+            alert("{{ session('success') }}");
+        </script>
+    @endif
+
   @yield('content')
   </div>
   {{-- ページ毎の個別内容ここまで --}}

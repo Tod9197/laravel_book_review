@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -50,7 +51,29 @@ class AuthController extends Controller
     }
 
     // 退会確認画面
-    public function withdraw(){
+    public function withdrawConforim(){
         return view('admin.users.withdraw');
     }
+
+    // 退会処理
+    public function withdraw(Request $request){
+        try{
+            $user = Auth::user();
+        //物理削除
+        $user->forceDelete();
+
+        Auth::logout();
+
+        // セッションの無効化
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('top.index')->with('success','退会が完了しました。');
+        } catch (\Exception $e) {
+        // 詳細なエラーメッセージをログに出力
+        Log::error('退会処理に失敗しました: ' . $e->getMessage());
+        return back()->withErrors(['error' => '退会処理に失敗しました。'])->withInput();
+    }
+    
+    } 
 }
