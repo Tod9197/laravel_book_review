@@ -29,7 +29,7 @@
         
         <div class="hamburger-button" onclick="toggleMenu()">
           <img class="hamburger-button-img" src="/images/admin/menu01.png" alt="メニューアイコン">
-          <span class="mt-1 text-xs md:text-sm lg:text-base">Menu</span>
+          <span class="mt-1 text-xs md:text-sm lg:text-base hamburger-button-text">Menu</span>
         </div>
         @endauth
         {{-- ログイン時ここまで --}}
@@ -66,14 +66,9 @@
         </a>
       </li>
       <li class="text-center hover:text-red-500 nav-item">
-        <a class="hover:opacity-80" href="">
+        <a class="hover:opacity-80" href="{{route('admin.users.edit',['user' => Auth::id()])}}">
           <img class="mypage-contents-img" src="/images/admin/person02.png" alt="プロフィール変更アイコン">
           <p>プロフィール変更</p>
-        </a></li>
-      <li class="text-center hover:text-red-500 nav-item">
-        <a href="">
-        <img class="mypage-contents-img" src="/images/admin/password01.png" alt="パスワード変更アイコン">
-          <p>パスワード変更</p>
         </a></li>
       <li class="text-center hover:text-red-500 nav-item">
         <a href="{{route('admin.users.withdraw')}}">
@@ -168,14 +163,10 @@
       </a>
     </li>
       <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam">
-        <a href="">
+        <a href="{{route('admin.users.edit',['user' => Auth::id()])}}">
       <img class="mypage-contents-img -responsive" src="/images/admin/person02.png" alt="プロフィール変更アイコン">
         プロフィール変更</a>
       </li>
-      <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam"><a href="">
-        <img class="mypage-contents-img -responsive" src="/images/admin/password01.png" alt="パスワードアイコン">
-        パスワード変更
-      </a></li>
       <li class="text-base sm:text-xl text-center mb-8 hover:text-red-500 under-nav-itam"><a href="{{route('admin.users.withdraw')}}">
         <img class="mypage-contents-img -responsive" src="/images/admin/person03.png" alt="退会アイコン">
         退会

@@ -56,6 +56,7 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+    margin: auto;
 }
 .mypage-img {
     width: 2.4rem;
@@ -344,6 +345,9 @@
         border: 1px solid #ddd;
         border-radius: 50%;
     }
+    .hamburger-button-text {
+        margin-left: 0.3rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -510,9 +514,35 @@
     margin-left: auto;
 }
 
+/* プロフフィール編集 */
+.user-edit-section {
+    width: 100%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background-color: #fff;
+}
+.user-edit-name,
+.user-edit-email,
+.user-edit-password {
+    width: 60%;
+}
+@media (max-width: 768px) {
+    .user-edit-name,
+    .user-edit-email,
+    .user-edit-password {
+        width: 100%;
+    }
+}
+/* @media (max-width: 480px) {
+    .user-edit-name {
+        width: 100%;
+    }
+} */
+
 /* 退会画面 */
 .withdraw-section {
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 3rem;
     background-color: #fff;
