@@ -54,6 +54,6 @@ Route::post('/admin/login',[AuthController::class,'login']);
 Route::post('/admin/logout',[AuthController::class,'logout'])->name('admin.logout')
 ->middleware('auth');
 // 退会確認画面
-Route::get('/admin/users/withdraw',[AuthController::class,'withdrawConforim'])->name('admin.users.withdraw')->middleware('auth');
+Route::get('/admin/users/withdraw',[AuthController::class,'withdrawConforim'])->name('admin.users.withdraw.confirm')->middleware('auth');
 // 退会機能
 Route::post('/admin/users/withdraw',[AuthController::class,'withdraw'])->name('admin.users.withdraw')->middleware('auth');
