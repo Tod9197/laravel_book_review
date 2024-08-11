@@ -5,6 +5,8 @@ use App\Http\Controllers\TopController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ForgetPasswordController;
+use App\Http\Controllers\Admin\ResetPasswordController;
 
 // Route::get('/', function () {
 //     return view('index');

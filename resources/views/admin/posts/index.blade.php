@@ -6,7 +6,7 @@
   @endphp
 
   <section class="mb-6 mt-8 pt-8 pb-4 bg-white rounded-md">
-    <div class="flex items-center px-6 pb-4 mb-4 sm:mb-8 md:mb-10 border-d">
+    <div class="flex items-center px-6 pb-4 mb-4 sm:mb-8 border-b">
       <h2 class="sm:text-base md:text-lg lg:text-xl font-bold">投稿一覧</h2>
         <div class="ml-auto">
       <a href="{{route('admin.posts.create')}}" class="py-2 px-4 sm:px-6 text-xs md:text-sm lg:text-base text-white font-semibold bg-green-500 hover:opacity-80 rounded-md">新規投稿</a>
@@ -20,8 +20,8 @@
             <th class="font-medium pl-6 responsive-text">画像</th>
             <th class="font-medium text-center responsive-text">タイトル</th>
             <th class="font-medium text-center responsive-text">カテゴリー</th>
-            <th class="font-medium text-center hidden sm:table-cell">ジャンル</th>
-            <th class="font-medium text-center hidden sm:table-cell">更新日時</th>
+            <th class="font-medium text-center hidden sm:table-cell responsive-text">ジャンル</th>
+            <th class="font-medium text-center hidden sm:table-cell responsive-text">更新日時</th>
             <th class="font-medium text-center pr-10"></th>
           </tr>
         </thead>

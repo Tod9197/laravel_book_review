@@ -24,15 +24,14 @@
       <a href="/">Engineer<br>Book Club</a>
     </h1>
     <nav class="">
-      <ul class="flex items-center justy-end list-none">
+      <ul class="flex items-center list-none">
         {{-- ログイン時 --}}
         @auth
-        <li class="mr-5 text-xs md:text-sm lg:text-base">{{\Auth::user()->name}}</li>
-        <li class="mr-5 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{ \Auth::user()->img_path ? asset('storage/' . \Auth::user()->img_path) : asset('images/admin/noimage.jpg') }}" alt="ユーザー画像"></li>
+        <li class="mr-6 mt-4 text-xs md:text-sm lg:text-base"><img class="user-img" src="{{ \Auth::user()->img_path ? asset('storage/' . \Auth::user()->img_path) : asset('images/admin/noimage.jpg') }}" alt="ユーザー画像"><span class="mt-1 text-xs md:text-sm lg:text-base">{{\Auth::user()->name}}</span></li>
         <li class="mr-5 text-xs md:text-sm lg:text-base">
           <a href="{{route('admin.posts.index')}}" class="hover:opacity-80">
           <img class="mypage-img" src="/images/index/mypage.png" alt="ユーザー画像">
-          <p class="text-xs hover:opacity-80">My Page</p>
+          <p class="text-xs lg:text-base hover:opacity-80">My Page</p>
           </a>
         </li>
         @endauth

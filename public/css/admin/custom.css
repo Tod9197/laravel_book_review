@@ -53,8 +53,8 @@
 }
 
 .user-img {
-    width: 3rem;
-    height: 3rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
     margin: auto;
 }
@@ -63,6 +63,7 @@
     cursor: pointer;
     opacity: 0.8;
     margin-left: 5px;
+    margin-top: 15px;
 }
 
 .mypage-contents-img {
@@ -87,8 +88,8 @@
 
 @media (max-width: 768px) {
     .user-img {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.4rem;
+        height: 2.4rem;
     }
 }
 @media (max-width: 480px) {
@@ -121,6 +122,11 @@
     margin: auto;
     margin-top: 2rem;
 }
+@media (max-width: 1024px) {
+    .mypage-img {
+        width: 2.4rem;
+    }
+}
 @media (max-width: 768px) {
     .sign-up-section {
         width: 80%;
@@ -128,7 +134,8 @@
         margin-top: 2rem;
     }
     .mypage-img {
-        width: 2rem;
+        width: 2.4rem;
+        margin-top: 20px;
     }
 }
 @media (max-width: 480px) {
@@ -138,8 +145,8 @@
         margin-top: 2rem;
     }
     .mypage-img {
-        width: 1.6rem;
-        margin-left: 10px;
+        width: 2rem;
+        margin-left: 5px;
     }
 }
 
@@ -314,7 +321,7 @@
         height: 100%;
         display: block;
         position: fixed;
-        top: 90px;
+        top: 87px;
         left: 0;
         background-color: white;
         z-index: 100;
@@ -340,8 +347,8 @@
     }
     .hamburger-button-img {
         display: block;
-        width: 3rem;
-        height: 3rem;
+        width: 2.4rem;
+        height: 2.4rem;
         border: 1px solid #ddd;
         border-radius: 50%;
     }
@@ -352,7 +359,7 @@
 
 @media (max-width: 768px) {
     .under-nav {
-        top: 84px;
+        top: 83px;
     }
     .hamburger-button {
         top: 20px;
@@ -599,5 +606,43 @@
     }
     .back-btn {
         margin-bottom: 1rem;
+    }
+}
+
+/* パスワードリセット */
+.password-reset-section {
+    width: 60%;
+    margin: auto;
+    margin-top: 2rem;
+}
+.password-reset-title {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.password-reset-title::after {
+    color: #333;
+    opacity: 0.5;
+    display: block;
+    content: "Password Reset";
+    font-family: fantasy;
+    letter-spacing: 0.1em;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.password-reset-btn {
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .password-reset-section {
+        width: 80%;
+    }
+}
+@media (max-width: 480px) {
+    .password-reset-section {
+        width: 100%;
     }
 }

@@ -49,7 +49,7 @@
           </div>
         </div>
         <div><button type="submit" class="block w-2/5 py-3 text-center text-xs md:text-sm lg:text-base text-white font-semibold leading-none bg-blue-500 hover:bg-blue-400 rounded login-btn">登録する</button>
-          </div>
+        </div>
       </form>
     </div>
   </div>
