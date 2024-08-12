@@ -58,7 +58,7 @@
     </li>
     @empty
     </ul>
-    <p>まだ投稿はありません</p>
+    <p class="text-center lg:text-xl font-semibold py-8 mb-20">まだ投稿はありません</p>
     @endforelse
   </section>
   <a class="block text-center text-white bg-green-500 hover:opacity-80 font-semibold category-btn" href="{{route('category.index',1)}}">フロントエンドの書籍一覧を見る</a>
@@ -90,7 +90,7 @@
     </li>
     @empty
     </ul>
-    <p>まだ投稿はありません</p>
+    <p class="text-center lg:text-xl font-semibold py-8 mb-20">まだ投稿はありません</p>
     @endforelse
   </section>
   <a class="block text-center text-white bg-green-500 hover:opacity-80 font-semibold category-btn" href="{{route('category.index',2)}}">バックエンドの書籍一覧を見る</a>
@@ -122,7 +122,7 @@
     </li>
     @empty
     </ul>
-    <p>まだ投稿はありません</p>
+    <p class="text-center lg:text-xl font-semibold py-8 mb-20">まだ投稿はありません</p>
     @endforelse
   </section>
   <a class="block text-center text-white bg-green-500 hover:opacity-80 font-semibold category-btn" href="{{route('category.index',3)}}">サーバー/インフラの書籍一覧を見る</a>
