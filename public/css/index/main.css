@@ -343,7 +343,7 @@ li {
     .title-server::after,
     .title-webdesign::after,
     .title-webgeneral::after {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
     }
     .backto-Top-btn {
         margin-bottom: 4rem;
@@ -374,7 +374,7 @@ li {
     .title-server::after,
     .title-webdesign::after,
     .title-webgeneral::after {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
     .flex-wrap {
         flex-direction: column;
