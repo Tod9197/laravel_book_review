@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="pt-10 px-6">
+        <div class="pt-10 px-4 sm:px-6">
           {{-- エラーメッセージ --}}
           @if($errors->any())
           <div class="mb-8 py-4 px-6 border border-red-300 ng-red-50 rounded">

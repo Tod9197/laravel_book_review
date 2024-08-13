@@ -61,7 +61,7 @@
     </li>
     @empty
     </ul>
-    <p>他に投稿はありません</p>
+    <p class="text-center lg:text-xl font-semibold py-8 mb-20">他に投稿はありません</p>
     @endforelse
   </section>
 

@@ -279,6 +279,7 @@ li {
     aspect-ratio: 411/308;
 }
 .top-list-title {
+    font-size: 16px;
 }
 
 .top-list-genre {
@@ -350,7 +351,8 @@ li {
         display: none;
     }
     .top-list-title {
-        font-size: 14px;
+        font-size: 12px;
+        margin-top: 1rem;
     }
 }
 @media (max-width: 480px) {
