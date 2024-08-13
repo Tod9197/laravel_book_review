@@ -126,12 +126,13 @@
     .mypage-img {
         width: 2.4rem;
     }
+    .sign-up-section {
+        width: 70%;
+    }
 }
 @media (max-width: 768px) {
     .sign-up-section {
         width: 80%;
-        margin: auto;
-        margin-top: 2rem;
     }
     .mypage-img {
         width: 2.4rem;
@@ -195,7 +196,7 @@
 }
 @media (max-width: 1024px) {
     .login-box {
-        width: 50%;
+        width: 60%;
     }
 }
 @media (max-width: 768px) {
@@ -321,7 +322,7 @@
         height: 100%;
         display: block;
         position: fixed;
-        top: 87px;
+        top: 85px;
         left: 0;
         background-color: white;
         z-index: 100;
@@ -359,7 +360,7 @@
 
 @media (max-width: 768px) {
     .under-nav {
-        top: 83px;
+        top: 81px;
     }
     .hamburger-button {
         top: 20px;
@@ -374,7 +375,7 @@
         font-size: 20px;
     }
     .under-nav {
-        top: 76px;
+        top: 74px;
     }
     .hamburger-button-img {
         width: 2rem;

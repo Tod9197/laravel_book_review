@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/admin/tailwind/tailwind.min.css">
     <link rel="stylesheet" href="/css/admin/select2.min.css">
     <link rel="stylesheet" href="/css/admin/custom.css">
+    <link rel="stylesheet" href="/css/index/main.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
     <script src="/js/main.js"></script>
     <script src="/js/admin/jquery-3.6.0.slim.min.js"></script>
@@ -55,6 +56,8 @@
     </div>
   </section>
 
+  
+
   <script>
      //フォームのEnterキーで送信を防止
     document.getElementById('loginForm').addEventListener('keypress',function(e){
@@ -63,6 +66,14 @@
       }
     });
   </script>
+
+   {{-- 共通フッター --}}
+  <footer class="footer-login bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p class="footer-copy text-xs md:text-base">&copy; 2024 Engineer Book Club. All rights reserved.</p>
+    </div>
+  </footer>
+  {{-- 共通フッターここまで --}}
 
 </body>
 </html>

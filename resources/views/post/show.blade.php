@@ -30,7 +30,7 @@
     <p class="show-user mr-8">投稿者 : {{$post->user ? $post->user->name : '匿名'}}</p>
     <p class="show-updated">投稿日 : {{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
     </div>
-  <p class="show-review-text">{{$post->content}}</p>
+  <p class="show-review-text" style="white-space: pre-wrap;">{{$post->content}}</p>
 </section>
 
 

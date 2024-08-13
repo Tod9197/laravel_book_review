@@ -2,7 +2,7 @@
 
 @section('content')
   <main class="top-mv">
-    <div class="top-mv-box pt-6 pb-4 px-8">
+    <div class="top-mv-box pt-6 pb-4 px-4 sm:px-8">
       <h2 class="top-mv-title">Engineer Book Club</h2>
       <h3 class="top-mv-sutitle text-sm lg:text-lg font-semibold text-center mb-4 md:mb-10"><span>WEBエンジニア・WEBデザイナー</span>を目指している方への書籍紹介</h3>
       <div class="top-mv-flex items-center">
@@ -33,26 +33,26 @@
 
 <div class="top-inner px-4 sm:px-8 lg:px-14 mb-16">
     {{-- フロントエンドの投稿 --}}
-  <section class="top-post-section pt-12 mb-8">
+  <section class="top-post-section pt-8 sm:pt-12 mb-8">
     <h2 class="text-xl md:text-2xl font-semibold mb-10 sm:mb-14 text-center title-frontend">フロントエンド</h2>
     <ul class="top-list">
     @forelse($frontendPosts as $post)
     <li class="top-list-item hover:opacity-70">
       <a href="{{route('post.show',$post->id)}}">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <h3 class="top-list-title font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,20)}}</h3>
       <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
-      <div class="px-2 mb-4">
+      <div class="px-2 mb-2 sm:mb-4">
         @foreach($post->genres->slice(0,2) as $genre)
         <div class="top-list-genre text-xs lg:text-sm mb-1">
           {{$genre->name}} @if(!$loop->last) @endif
         </div>
         @endforeach
       </div>
-      <p class="px-2 mb-8 text-xs sm:text-base">{{Str::limit($post->content,20)}}</p>
+      <p class="px-2 mb-8 text-xs md:text-base">{{Str::limit($post->content,20)}}</p>
       <p class="top-list-item-btn mb-2 mr-2 p-1 bg-blue-500 text-white text-center">詳しく見る</p>
       </a>
     </li>
@@ -69,22 +69,22 @@
     <h2 class="text-xl md:text-2xl font-semibold mb-10 sm:mb-14 top-post-title text-center title-backend">バックエンド</h2>
     <ul class="top-list">
     @forelse($backendPosts as $post)
-    <li class="top-list-item hover:opacity-70">
-      <a href="">
+    <li class="top-list-item  hover:opacity-70">
+      <a href="{{route('post.show',$post->id)}}">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-    <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+    <h3 class="top-list-title font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
     <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
-      <div class="px-2 mb-4">
+      <div class="px-2 mb-2 sm:mb-4">
         @foreach($post->genres->slice(0,2) as $genre)
         <div class="top-list-genre text-xs lg:text-sm mb-1">
           {{$genre->name}} @if(!$loop->last) @endif
         </div>
         @endforeach
       </div>
-      <p class="px-2 mb-8 text-xs sm:text-base">{{Str::limit($post->content,20)}}</p>
+      <p class="px-2 mb-8 text-xs md:text-base">{{Str::limit($post->content,20)}}</p>
       <p class="top-list-item-btn mb-2 mr-2 p-1 bg-blue-500 text-white text-center">詳しく見る</p>
       </a>
     </li>
@@ -102,21 +102,21 @@
     <ul class="top-list">
     @forelse($infraPosts as $post)
     <li class="top-list-item hover:opacity-70">
-      <a href="">
+      <a href="{{route('post.show',$post->id)}}">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <h3 class="top-list-title font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
       <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
-      <div class="px-2 mb-4">
+      <div class="px-2 mb-2 sm:mb-4">
         @foreach($post->genres->slice(0,2) as $genre)
         <div class="top-list-genre text-xs lg:text-sm mb-1">
           {{$genre->name}} @if(!$loop->last) @endif
         </div>
         @endforeach
       </div>
-      <p class="px-2 mb-8 text-xs sm:text-base">{{Str::limit($post->content,20)}}</p>
+      <p class="px-2 mb-8 text-xs md:text-base">{{Str::limit($post->content,20)}}</p>
       <p class="top-list-item-btn mb-2 mr-2 p-1 bg-blue-500 text-white text-center">詳しく見る</p>
       </a>
     </li>
@@ -134,21 +134,21 @@
     <ul class="top-list">
     @forelse($webdesignPosts as $post)
     <li class="top-list-item  hover:opacity-70">
-      <a href="">
+      <a href="{{route('post.show',$post->id)}}">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <h3 class="top-list-title font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
       <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
-      <div class="px-2 mb-4">
+      <div class="px-2 mb-2 sm:mb-4">
         @foreach($post->genres->slice(0,2) as $genre)
         <div class="top-list-genre text-xs lg:text-sm mb-1">
           {{$genre->name}} @if(!$loop->last) @endif
         </div>
         @endforeach
       </div>
-      <p class="px-2 mb-8 text-xs sm:text-base">{{Str::limit($post->content,20)}}</p>
+      <p class="px-2 mb-8 text-xs md:text-base">{{Str::limit($post->content,20)}}</p>
       <p class="top-list-item-btn mb-2 mr-2 p-1 bg-blue-500 text-white text-center">詳しく見る</p>
       </a>
     </li>
@@ -166,21 +166,21 @@
     <ul class="top-list">
     @forelse($generalPosts as $post)
     <li class="top-list-item hover:opacity-70">
-      <a href="">
+      <a href="{{route('post.show',$post->id)}}">
       <img class="top-list-img" src="{{$post->img_path ? asset('storage/'. $post->img_path) : asset('images/admin/noimage.jpg')}}" alt="投稿画像">
-      <h3 class="text-sm md:text-base lg:text-lg font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
+      <h3 class="top-list-title font-semibold pt-0 md:pt-2 mb-0 m-2">{{Str::limit($post->title,15)}}</h3>
       <div class="flex items-center justify-between p-2 flex-wrap">
       <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
       <p class="text-xs  md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d') }}</p>
       </div>
-      <div class="px-2 mb-4">
+      <div class="px-2 mb-2 sm:mb-4">
         @foreach($post->genres->slice(0,2) as $genre)
         <div class="top-list-genre text-xs lg:text-sm mb-1">
           {{$genre->name}} @if(!$loop->last) @endif
         </div>
         @endforeach
       </div>
-      <p class="px-2 mb-8 text-xs sm:text-base">{{Str::limit($post->content,20)}}</p>
+      <p class="px-2 mb-8 text-xs md:text-base">{{Str::limit($post->content,20)}}</p>
       <p class="top-list-item-btn mb-2 mr-2 p-1 bg-blue-500 text-white text-center">詳しく見る</p>
       </a>
     </li>

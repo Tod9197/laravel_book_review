@@ -3,14 +3,14 @@
 @section('content')
 <section class="py-8 sign-up-section">
   <div class="container mx-auto">
-    <div class="py-10 bg-white rounded-md">
+    <div class="py-8 sm:py-10 bg-white rounded-md">
       <form id="RegisterForm" action="{{route('admin.users.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         {{-- <div class="flex px-10 pb-4 border-b items-center justify-between"> --}}
           <h1 class="text-lg md:text-xl lg:text-2xl font-semibold text-center sign-up-title">ユーザー登録</h1>
         {{-- </div> --}}
 
-        <div class="pt-10 px-6 lg:px-12">
+        <div class="pt-10 px-4 md:px-6 lg:px-12">
           {{-- エラーメッセージ --}}
           @if($errors->any())
           <div class="mb-8 py-4 px-6 border border-red-300 ng-red-50 rounded">

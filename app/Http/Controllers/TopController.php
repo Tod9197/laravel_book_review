@@ -20,27 +20,27 @@ class TopController extends Controller
     $frontendPosts = Post::with('genres')
     ->where('category_id',$frontendCategoryId)
     ->latest('updated_at')
-    ->paginate(6);
+    ->paginate(8);
     // バックエンドの投稿
     $backendPosts = Post::with('genres')
     ->where('category_id',$backendCategoryId)
     ->latest('updated_at')
-    ->paginate(6);
+    ->paginate(8);
     // サーバー/インフラの投稿
     $infraPosts = Post::with('genres')
     ->where('category_id',$infraCategoryId)
     ->latest('updated_at')
-    ->paginate(6);
+    ->paginate(8);
     //Webデザインの投稿
     $webdesignPosts = Post::with('genres')
     ->where('category_id',$webdesignCategoryId)
     ->latest('updated_at')
-    ->paginate(6);
+    ->paginate(8);
     //web技術全般/その他のの投稿
     $generalPosts = Post::with('genres')
     ->where('category_id',$generalCategoryId)
     ->latest('updated_at')
-    ->paginate(6);
+    ->paginate(8);
 
     return view('index',[
         'frontendPosts' => $frontendPosts,

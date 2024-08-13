@@ -1,3 +1,5 @@
+const { default: laravel } = require("laravel-vite-plugin");
+
 // Burger menus
 document.addEventListener("DOMContentLoaded", function () {
     // open
