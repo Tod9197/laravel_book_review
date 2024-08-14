@@ -165,7 +165,7 @@ li {
         margin-right: auto;
     }
     .top-mv {
-        height: 75vh;
+        height: 80vh;
     }
 }
 @media (max-width: 480px) {
@@ -250,6 +250,7 @@ li {
     height: auto;
     border: 1px solid #eee;
     border-radius: 10px;
+    overflow: hidden;
 }
 .top-list-item-category {
     width: 100%;
@@ -279,6 +280,10 @@ li {
     object-fit: contain;
     border-radius: 10px;
     aspect-ratio: 411/308;
+    transition: transform 0.3s ease;
+}
+.top-list-item:hover .top-list-img {
+    transform: scale(1.05);
 }
 .top-list-title {
     font-size: 16px;
