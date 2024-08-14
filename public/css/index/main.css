@@ -259,6 +259,7 @@ li {
     height: auto;
     border: 1px solid #eee;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .top-list-item-btn {
@@ -283,6 +284,9 @@ li {
     transition: transform 0.3s ease;
 }
 .top-list-item:hover .top-list-img {
+    transform: scale(1.05);
+}
+.top-list-item-category:hover .top-list-img {
     transform: scale(1.05);
 }
 .top-list-title {
