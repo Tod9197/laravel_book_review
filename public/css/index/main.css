@@ -481,7 +481,7 @@ li {
 /* 記事詳細ページ */
 .show-section {
     padding-top: 3rem;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
 }
 .show-section-inner {
     width: 100%;
@@ -533,7 +533,7 @@ li {
     font-size: 1rem;
     width: 100%;
     height: auto;
-    max-height: 600px;
+    min-height: 600px;
     line-height: 1.8;
     overflow-y: auto;
     background-color: aliceblue;
