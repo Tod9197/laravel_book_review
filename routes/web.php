@@ -8,9 +8,6 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ForgetPasswordController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
 
 // トップ画面投稿一覧
 Route::get('/',[TopController::class,'index'])->name('top.index');
@@ -57,3 +54,4 @@ Route::post('/admin/logout',[AuthController::class,'logout'])->name('admin.logou
 Route::get('/admin/users/withdraw',[AuthController::class,'withdrawConforim'])->name('admin.users.withdraw.confirm')->middleware('auth');
 // 退会機能
 Route::post('/admin/users/withdraw',[AuthController::class,'withdraw'])->name('admin.users.withdraw')->middleware('auth');
+

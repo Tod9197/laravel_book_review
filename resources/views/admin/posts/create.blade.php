@@ -34,7 +34,6 @@
             <input id="url" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="url" type="text" value={{old('url')}}>
           </div>
 
-          {{-- 2024.08.09追加 --}}
           <div class="mb-6">
             <label class="block text-xs sm:text-sm font-medium mb-4" for="title">著者<span class="text-gray-500 ml-2 text-xs">(任意)</span></label>
             <input id="author" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="author" type="text" value={{old('author')}}>
@@ -44,7 +43,6 @@
             <label class="block text-xs sm:text-sm font-medium mb-4" for="title">出版社<span class="text-gray-500 ml-2 text-xs">(任意)</span></label>
             <input id="publisher" class="block w-full lg:w-4/5 px-4 py-3 mb-2 text-sm bg-white border rounded" name="publisher" type="text" value={{old('publisher')}}>
           </div>
-          {{-- 2024.08.09追加ここまで --}}
 
           <div class="mb-0 md:mb-6">
             <label class="block text-xs sm:text-sm font-medium mb-4" for="image">画像<span class="text-gray-500 ml-2 text-xs">(任意)</span></label>

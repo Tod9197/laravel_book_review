@@ -12,20 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
     // ユーザー登録画面表示
     public function create()
     {
-        // if(!Auth::check()){
-        //     return redirect()->route('admin.login');
-        // }
         return view('admin.users.create');
     }
 
@@ -47,14 +37,6 @@ class UserController extends Controller
         Auth::login($user);
 
         return redirect()->route('admin.posts.index')->with('success','ユーザー登録が完了しました');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        //
     }
 
     // ユーザーのプロフィール編集画面表示
@@ -105,11 +87,4 @@ class UserController extends Controller
         return redirect()->route('admin.posts.index',$user->id)->with('success','プロフィールが更新されました');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
 }

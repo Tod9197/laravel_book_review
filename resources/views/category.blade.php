@@ -15,14 +15,14 @@
           <p class="text-sm lg:text-base top-list-user">{{$post->user ? $post->user->name : '匿名'}}</p>
           <p class="text-xs md:text-sm lg:text-base text-gray-400 top-list-time">{{\Carbon\Carbon::parse($post->updated_at)->format('Y/m/d')}}</p>
         </div>
-        <div class="px-2 mb-2 sm:mb-4">
+        <div class="px-2 mb-2 sm:mb-4 top-list-genre-flex">
           @foreach($post->genres->slice(0,2) as $genre)
           <div class="top-list-genre text-xs lg:text-sm mb-1">
             {{$genre->name}} @if(!$loop->last) @endif
           </div>
           @endforeach
         </div>
-        <p class="px-2 mb-8 text-xs md:text-base">{{Str::limit($post->content,20)}}</p>
+        <p class="px-2 mb-8 text-xs md:text-base top-list-content">{{Str::limit($post->content,20)}}</p>
         <p class="top-list-item-btn mb-2 mr-2 p-1 bg-blue-500 text-white text-center">詳しく見る</p>
         </a>
       </li>

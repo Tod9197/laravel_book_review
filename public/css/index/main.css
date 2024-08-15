@@ -292,6 +292,9 @@ li {
 .top-list-title {
     font-size: 16px;
 }
+.top-list-genre-flex {
+    display: flex;
+}
 
 .top-list-genre {
     display: inline-block;
@@ -299,6 +302,12 @@ li {
     border: 1px solid #eee;
     border-radius: 6px;
     background-color: #eee;
+}
+.top-list-genre:nth-child(2) {
+    margin-left: 0.5rem;
+}
+.top-list-genre:nth-child(3) {
+    margin-left: 0.5rem;
 }
 .category-btn {
     font-size: 0.8rem;
@@ -365,6 +374,16 @@ li {
         font-size: 12px;
         margin-top: 1rem;
     }
+    .top-list-genre {
+        display: inline-block;
+        padding: 0 0.6rem;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        background-color: #eee;
+    }
+    .top-list-content {
+        font-size: 10px;
+    }
 }
 @media (max-width: 480px) {
     .top-list {
@@ -390,11 +409,13 @@ li {
         margin-bottom: 0;
     }
     .top-list-title {
-        font-size: 14px;
+        font-size: 12px;
+        margin-top: 0.5rem;
     }
     .top-list-user {
         margin-right: auto;
-        font-size: 12px;
+        font-size: 10px;
+        margin-top: -0.5rem;
     }
     .top-list-time {
         margin-right: auto;

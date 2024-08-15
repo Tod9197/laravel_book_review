@@ -20,19 +20,15 @@ https://deep9197.xsrv.jp/
 
 # 使用技術
 
-## フロントエンド
-
 -   PHP
 -   Laravel
+-   MySQL
 -   Tailwind CSS
 -   CSS
 -   JavaScript
 -   jQuery
-
-## バックエンド
-
 -   Laravel
--   MySQL
+-   Docker(ローカル環境)
 
 ## サーバー/デプロイ/バージョン管理等
 
