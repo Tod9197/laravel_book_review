@@ -8,11 +8,11 @@
   <div class="show-description">
   <h2 class="show-title font-semibold mb-4">書籍名 : <span>{{$post->title}}</span></h2>
   <p class="show-category mb-2 md:mb-4 lg:mb-6">カテゴリー :
-    <a href="{{route('category.index',['id' => $category->id])}}" class="inline-block bg-green-400 rounded-full px-2 md:px-4 py-0 md:py-1 text-base font-semibold text-white mr-2 ml-2 hover:opacity-80">{{$category->name}}</a>
+    <a href="{{route('category.index',['id' => $category->id])}}" class="inline-block bg-green-400 rounded-full px-2 md:px-4 py-1 font-semibold text-white mr-2 ml-2 hover:opacity-80 category-link">{{$category->name}}</a>
   </p>
   <p class="show-genre mb-2 md:mb-4 lg:mb-6">ジャンル :
     @foreach($post->genres as $genre)
-    <span class="inline-block bg-blue-400 rounded-full px-2 md:px-4 py-0 md:py-1 text-base font-semibold text-white ml-2 mb-2"> {{$genre->name}}</span>
+    <span class="inline-block bg-blue-400 rounded-full px-4  text-base font-semibold text-white ml-2 mb-2"> {{$genre->name}}</span>
     @endforeach
   </p>
   <div class="flex lg:block">

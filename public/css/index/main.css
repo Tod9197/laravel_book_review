@@ -566,6 +566,14 @@ li {
     padding-top: 4rem;
     border-top: 1px solid #eee;
 }
+.category-link {
+    font-size: 14px;
+}
+.show-genre span {
+    font-size: 1rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
 @media (max-width: 1024px) {
     .show-title,
     .show-review {
@@ -586,7 +594,9 @@ li {
     }
     .show-category span,
     .show-genre span {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
     }
 }
 @media (max-width: 768px) {
@@ -614,9 +624,16 @@ li {
     .show-review-text {
         font-size: 0.7rem;
     }
-    .show-category span,
     .show-genre span {
         font-size: 0.6rem;
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 1.87;
+    }
+    .category-link {
+        font-size: 10px;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
     }
 }
 
@@ -642,6 +659,11 @@ li {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    .show-title {
+        font-size: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
     .show-title span {
         font-size: 1.1rem;
     }
@@ -654,16 +676,29 @@ li {
     .show-updated,
     .show-review-text {
         font-size: 0.8rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .show-url a {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .show-review-text {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
     }
     .show-category span,
     .show-genre span {
         font-size: 0.7rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .show-review {
         padding-right: 1rem;
         padding-left: 1rem;
+    }
+    .category-link {
+        font-size: 10px;
     }
 }
