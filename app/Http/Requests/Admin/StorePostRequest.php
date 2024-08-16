@@ -36,6 +36,7 @@ class StorePostRequest extends FormRequest
             'publisher' => ['nullable','max:255'],
             'url' => ['nullable','url'],
             'content' => ['required','max:20000'],
+            'genres' => 'required|array|min:1',
             'genres.*' => ['distinct','exists:genres,id'],
         ];
     }

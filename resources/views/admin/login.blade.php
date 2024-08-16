@@ -50,9 +50,6 @@
           <div class="mb-14">
             <input class="block w-full px-2 py-2 mb-2 text-sm bg-white border border-blue-300 rounded login-input" placeholder="パスワード" name="password" type="password">
         </div>
-
-        <a href="">パスワードを忘れた方はこちら</a>
-
           <button type="submit" class="block w-3/5 py-3 text-center text-xs md:text-sm lg:text-base text-white font-semibold leading-none bg-blue-500 hover:bg-blue-400 rounded login-btn">ログイン</button>
           </form>
         </div>
