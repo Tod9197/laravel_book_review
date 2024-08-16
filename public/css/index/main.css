@@ -21,6 +21,54 @@ body {
 .content {
     padding-bottom: 4rem;
 }
+/* header */
+.header {
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.top-button-flex {
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .top-button-flex {
+        flex-direction: column;
+    }
+    .sign-up-button,
+    .login-button {
+        width: 100px;
+        font-size: 12px;
+        margin-right: 0;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .sign-up-button {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        border-bottom: none;
+        box-shadow: none;
+    }
+    .top-button-flex {
+        flex-direction: initial;
+    }
+    .sign-up-button,
+    .login-button {
+        width: unset;
+        font-size: 10px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        margin-bottom: 0;
+    }
+    .sign-up-button {
+        margin-right: 1rem;
+    }
+}
+
 /* footer */
 .footer {
     width: 100%;
@@ -442,6 +490,75 @@ li {
     }
 }
 
+/* 検索バー、検索ページ */
+.search-bar {
+    display: block;
+    width: 40%;
+    margin: auto;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+}
+.search-bar-responsive {
+    display: none;
+}
+.search-bar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1rem;
+}
+.search-input {
+    width: 100%;
+    outline: none;
+}
+.search-bar-button {
+    padding: 0.3rem 0.7rem;
+    border-radius: 0 30px 30px 0;
+    background-color: #ddd;
+}
+.search-bar-button:hover {
+    background-color: #578df7;
+    opacity: 0.8;
+}
+.search-bar-img {
+    width: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 45%;
+    }
+    .search-input {
+        font-size: 10px;
+    }
+}
+@media (max-width: 480px) {
+    .search-bar {
+        display: none;
+        width: 40%;
+        margin: auto;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+    }
+    .search-bar-responsive {
+        display: block;
+        width: 80%;
+        margin: auto;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .search-bar-flex {
+        height: 25px;
+    }
+    .search-bar-button {
+        padding: 0 0.7rem;
+    }
+}
+
 /* カテゴリー別一覧ページ */
 .category-mv {
     width: 100%;
@@ -503,7 +620,7 @@ li {
 
 /* 記事詳細ページ */
 .show-section {
-    padding-top: 3rem;
+    padding-top: 2rem;
     padding-bottom: 5rem;
 }
 .show-section-inner {

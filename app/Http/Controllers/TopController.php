@@ -62,6 +62,31 @@ class TopController extends Controller
         return view('category',['posts' => $posts, 'category' => $category ]);
     }
 
+    // 検索バーの表示
+    public function search(Request $request){
+        $query = $request->input('query');
+        $categoryId = $request->input('category_id');
+        $genreId = $request->input('genre_id');
+
+        // 部分一致でタイトルや著者名を検索
+        $posts = Post::where('title','LIKE',"%{$query}%")
+        ->orWhere('author','LIKE',"%{$query}%")
+        ->when($categoryId,function($query, $categoryId){
+            return $query->where('category_id',$categoryId);
+        })
+        ->when($genreId,function($query,$genreId){
+            return $query->whereHas('genres',function($q) use ($genreId){
+                $q->where('genre_id',$genreId);
+            });
+        })
+        ->orWhereHas('category',function($q) use ($query){
+            $q->where('name','LIKE',"%{$query}%");
+        })->get();
+
+        // 検索結果
+        return view('post.search_results',['posts' => $posts, 'query' => $query]);
+    }
+    
     //各投稿の詳細ページ
     public function show($id){
         $post = Post::with('genres','user')->findOrFail($id);

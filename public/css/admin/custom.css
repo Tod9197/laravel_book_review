@@ -88,8 +88,8 @@
 
 @media (max-width: 768px) {
     .user-img {
-        width: 2.4rem;
-        height: 2.4rem;
+        width: 2rem;
+        height: 2rem;
     }
 }
 @media (max-width: 480px) {
@@ -135,7 +135,7 @@
         width: 80%;
     }
     .mypage-img {
-        width: 2.4rem;
+        width: 2rem;
         margin-top: 17px;
     }
 }
@@ -343,7 +343,7 @@
         cursor: pointer;
         position: fixed;
         top: 20px;
-        right: 20px;
+        right: 30px;
         z-index: 101;
     }
     .hamburger-button-img {
@@ -357,14 +357,14 @@
 
 @media (max-width: 768px) {
     .under-nav {
-        top: 81px;
+        top: 76px;
     }
     .hamburger-button {
         top: 20px;
     }
     .hamburger-button-img {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem;
+        height: 2rem;
     }
 }
 @media (max-width: 480px) {

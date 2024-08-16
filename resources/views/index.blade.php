@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+
   <main class="top-mv">
     <div class="top-mv-box pt-6 pb-4 px-4 sm:px-8">
       <h2 class="top-mv-title">Engineer Book Club</h2>
@@ -29,7 +30,7 @@
         
       </div>
     </div>
-  </main>
+</main>
 
 <div class="top-inner px-4 sm:px-8 lg:px-14 mb-16">
     {{-- フロントエンドの投稿 --}}

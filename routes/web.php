@@ -15,6 +15,8 @@ Route::get('/',[TopController::class,'index'])->name('top.index');
 Route::get('/categroy/{id}',[TopController::class,'categoryPage'])->name('category.index');
 // 各投稿の詳細ページ
 Route::get('/post/{id}',[TopController::class,'show'])->name('post.show');
+// 検索バー
+Route::get('/search',[TopController::class,'search'])->name('search');
 
 
 // 投稿管理画面
