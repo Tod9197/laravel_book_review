@@ -16,14 +16,19 @@
         <div class="pt-10 px-4 sm:px-6">
           {{-- エラーメッセージ --}}
           @if($errors->any())
-          <div class="mb-8 py-4 px-6 border border-red-300 ng-red-50 rounded">
+          <div class="mb-8 pt-4 pb-2 px-6 border border-red-300 bg-red-50 rounded">
             <ul>
-              @foreach($errors->all() as $error)
-              <li class="text-red400">{{$error}}</li>
-              @endforeach
-            </ul>
-          </div>
-          @endif
+        {{-- カスタム順序で表示 --}}
+        @foreach(['title', 'category_id', 'genres','content'] as $key)
+            @if($errors->has($key))
+                @foreach($errors->get($key) as $error)
+                    <li class="text-red-400 text-xs sm:text-sm lg:text-base mb-2">{{ $error }}</li>
+                @endforeach
+            @endif
+        @endforeach
+      </ul>
+    </div>
+    @endif
           {{-- エラーメッセージここまで --}}
           <div class="mb-6">
             <label class="block text-xs sm:text-sm font-medium mb-4" for="title">書籍タイトル<span class="text-red-500 ml-2 text-xs">※ 必須</span></label>
