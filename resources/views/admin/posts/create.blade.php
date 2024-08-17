@@ -90,7 +90,6 @@
   </div>
 </section>
 
-
 <script>
     // ジャンル追加
     $('#js-pulldown').select2();
@@ -108,10 +107,10 @@
     })
 
     //フォームのEnterキーで送信を防止
-    document.getElementById('postForm').addEventListener('keypress',function(e){
-      if(e.key === 'Enter' && e.target.type !== 'textarea'){
+document.getElementById("postForm").addEventListener("keypress", function (e) {
+    if (e.key === "Enter" && e.target.type !== "textarea") {
         e.preventDefault();
-      }
-    });
+    }
+});
 </script>
 @endsection

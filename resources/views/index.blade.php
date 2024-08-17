@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <main class="top-mv">
+  <main class="top-mv" id="main">
     <div class="top-mv-box pt-6 pb-4 px-4 sm:px-8">
       <h2 class="top-mv-title">Engineer Book Club</h2>
       <h3 class="top-mv-sutitle text-sm lg:text-lg font-semibold text-center mb-4 md:mb-10"><span>WEBエンジニア・WEBデザイナー</span>を目指している方への書籍紹介</h3>
@@ -31,6 +31,7 @@
       </div>
     </div>
 </main>
+
 
 <div class="top-inner px-4 sm:px-8 lg:px-14 mb-16">
     {{-- フロントエンドの投稿 --}}
@@ -195,3 +196,5 @@
 </div>
 
 @endsection
+
+

@@ -1,4 +1,4 @@
-const { default: laravel } = require("laravel-vite-plugin");
+// const { default: laravel } = require("laravel-vite-plugin");
 
 // Burger menus
 document.addEventListener("DOMContentLoaded", function () {
@@ -58,6 +58,22 @@ document.addEventListener("DOMContentLoaded", function () {
             message.classList.add("hidden");
         }
     }, 3000); // 4000ミリ秒（4秒）
+});
+
+// 検索バー未入力時ボタンが押せない
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+
+    if (searchInput && searchButton) {
+        searchInput.addEventListener("input", function () {
+            if (searchInput.value.trim() !== "") {
+                searchButton.disabled = false;
+            } else {
+                searchButton.disabled = true;
+            }
+        });
+    }
 });
 
 // 削除確認メッセージ表示

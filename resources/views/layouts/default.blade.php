@@ -27,11 +27,11 @@
     {{-- 検索フォーム --}}
 <form class="search-bar" action="{{route('search')}}" method="GET">
   <div class="search-bar-flex">
-  <input class="search-input" type="text" name="query" placeholder="タイトル、著者名などで検索" value="{{request('query')}}">
-  <button class="search-bar-button" type="submit"><img class="search-bar-img -responsive" src="/images/index/searchbar-01.png" alt="投稿一覧アイコン"></button>
+  <input class="search-input" id="searchInput" type="text" name="query" placeholder="タイトル、著者名、出版社名などで検索" value="{{request('query')}}">
+  <button class="search-bar-button" type="submit" id="searchButton" disabled><img class="search-bar-img -responsive" src="/images/index/searchbar-01.png" alt="投稿一覧アイコン"></button>
   </div>
 </form>
-    
+  
     <nav class="">
       <ul class="flex items-center list-none">
         {{-- ログイン時 --}}
@@ -65,7 +65,7 @@
           {{-- 767px以下検索フォーム --}}
 <form class="search-bar-responsive" action="{{route('search')}}" method="GET">
   <div class="search-bar-flex">
-  <input class="search-input" type="text" name="query" placeholder="タイトル、著者名などで検索" value="{{request('query')}}">
+  <input class="search-input" type="text" name="query" placeholder="タイトル、著者名、出版社名などで検索" value="{{request('query')}}">
   <button class="search-bar-button" type="submit"><img class="search-bar-img -responsive" src="/images/index/searchbar-01.png" alt="投稿一覧アイコン"></button>
   </div>
 </form>

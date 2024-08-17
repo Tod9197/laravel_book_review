@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/css/admin/custom.css">
     <link rel="stylesheet" href="/css/index/main.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-    <script src="/js/main.js"></script>
     <script src="/js/admin/jquery-3.6.0.slim.min.js"></script>
     <script src="/js/admin/select2.min.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 <body class="antialiased text-body font-body">
 
@@ -191,7 +191,9 @@
     </div>
   </footer>
   {{-- 共通フッターここまで --}}
-
+  <script src="/js/main.js"></script>
+  <script src="/js/admin/jquery-3.6.0.slim.min.js"></script>
+  <script src="/js/admin/select2.min.js"></script>
 </body>
 </html>
 

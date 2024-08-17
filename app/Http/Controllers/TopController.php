@@ -64,13 +64,22 @@ class TopController extends Controller
 
     // 検索バーの表示
     public function search(Request $request){
+        // バリデーション:queryが空の場合はエラーメッセージを表示
+        $request->validate([
+            'query' => 'required|string|max:255',
+        ],[
+            'query.required' => '検索キーワードを入力してください',
+        ]);
+
         $query = $request->input('query');
         $categoryId = $request->input('category_id');
         $genreName = $request->input('genre_name');
+        $publisher = $request->input('publisher');
 
         // 部分一致でタイトルや著者名を検索
         $posts = Post::where('title','LIKE',"%{$query}%")
         ->orWhere('author','LIKE',"%{$query}%")
+        ->orWhere('publisher','LIKE',"%{$query}%")
         ->when($categoryId,function($query, $categoryId){
             return $query->where('category_id',$categoryId);
         })

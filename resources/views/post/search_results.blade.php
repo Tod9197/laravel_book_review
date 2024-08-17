@@ -10,7 +10,7 @@
 <h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">〜「{{ request('query') }}」 〜 の検索結果</h2>
 <p class="text-center text-sm md:text-base font-semibold mb-10">{{$resultCount}}件ヒットしました</p>
 @if($posts->isEmpty())
-    <p>該当の投稿が見つかりませんでした</p>
+    <p class="text-center text-base md:text-xl font-semibold mb-10">該当の投稿が見つかりませんでした</p>
 @else
     <ul class="top-list">
         @foreach($posts as $post)
@@ -39,5 +39,4 @@
 </div>
 </section>
 <a class="block text-center text-white bg-green-500 hover:opacity-80 font-semibold backto-Top-btn" href="{{route('top.index')}}">Topページに戻る</a>
-
 @endsection

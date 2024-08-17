@@ -4,7 +4,7 @@
 <section class="py-6">
   <div class="container mx-auto">
     <div class="py-6 bg-white rounded-md">
-      <form action="{{route('admin.posts.update',['post' => $post->id])}}" method="post" enctype="multipart/form-data">
+      <form id="postForm" action="{{route('admin.posts.update',['post' => $post->id])}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="flex px-6 pb-4 border-b items-center justify-between">
@@ -114,5 +114,12 @@
             previewImageNode.src = previewImageNode.dataset.noimage
         }
     })
+
+    //フォームのEnterキーで送信を防止
+document.getElementById("postForm").addEventListener("keypress", function (e) {
+    if (e.key === "Enter" && e.target.type !== "textarea") {
+        e.preventDefault();
+    }
+});
 </script>
 @endsection
