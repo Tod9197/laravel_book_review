@@ -4,15 +4,11 @@
 
 
 <div class="top-inner px-4 sm:px-8 lg:px-14 mb-16">
-  {{-- 検索フォーム --}}
-<form action="{{ route('search') }}" method="GET">
-    <input type="text" name="query" placeholder="検索" value="{{ request('query') }}">
-    <button type="submit">検索</button>
-</form>
 
 <section class="top-post-section pt-8 sm:pt-12 mb-8">
   {{-- 検索結果の表示 --}}
-<h2 class="text-xl md:text-2xl font-semibold mb-10 sm:mb-14 text-center">「{{ request('query') }}」の検索結果</h2>
+<h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">〜「{{ request('query') }}」 〜 の検索結果</h2>
+<p class="text-center text-sm md:text-base font-semibold mb-10">{{$resultCount}}件ヒットしました</p>
 @if($posts->isEmpty())
     <p>該当の投稿が見つかりませんでした</p>
 @else
@@ -41,9 +37,7 @@
     </ul>
 @endif
 </div>
-
 </section>
-
-
+<a class="block text-center text-white bg-green-500 hover:opacity-80 font-semibold backto-Top-btn" href="{{route('top.index')}}">Topページに戻る</a>
 
 @endsection

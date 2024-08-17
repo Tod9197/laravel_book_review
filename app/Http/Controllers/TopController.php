@@ -66,7 +66,7 @@ class TopController extends Controller
     public function search(Request $request){
         $query = $request->input('query');
         $categoryId = $request->input('category_id');
-        $genreId = $request->input('genre_id');
+        $genreName = $request->input('genre_name');
 
         // 部分一致でタイトルや著者名を検索
         $posts = Post::where('title','LIKE',"%{$query}%")
@@ -74,17 +74,20 @@ class TopController extends Controller
         ->when($categoryId,function($query, $categoryId){
             return $query->where('category_id',$categoryId);
         })
-        ->when($genreId,function($query,$genreId){
-            return $query->whereHas('genres',function($q) use ($genreId){
-                $q->where('genre_id',$genreId);
+        ->when($genreName,function($query,$genreName){
+            return $query->whereHas('genres',function($q) use ($genreName){
+                $q->where('name','LIKE',"%{$genreName}%");
             });
         })
         ->orWhereHas('category',function($q) use ($query){
             $q->where('name','LIKE',"%{$query}%");
         })->get();
+        
+        // 検索結果の件数
+        $resultCount = $posts->count();
 
         // 検索結果
-        return view('post.search_results',['posts' => $posts, 'query' => $query]);
+        return view('post.search_results',['posts' => $posts, 'query' => $query, 'resultCount' => $resultCount]);
     }
     
     //各投稿の詳細ページ

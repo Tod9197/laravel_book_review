@@ -436,6 +436,10 @@ li {
     }
 }
 @media (max-width: 480px) {
+    .top-inner {
+        border-top: 2px solid #ddd;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
     .top-list {
         display: grid;
         grid-template-columns: repeat(
@@ -549,7 +553,7 @@ li {
         border: 1px solid #ddd;
         border-radius: 30px;
         margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
     .search-bar-flex {
         height: 25px;
@@ -620,7 +624,7 @@ li {
 
 /* 記事詳細ページ */
 .show-section {
-    padding-top: 2rem;
+    padding-top: 5rem;
     padding-bottom: 5rem;
 }
 .show-section-inner {
@@ -694,6 +698,9 @@ li {
     padding-bottom: 0.1rem;
 }
 @media (max-width: 1024px) {
+    .show-section {
+        padding-top: 4rem;
+    }
     .show-title,
     .show-review {
         font-size: 1rem;
@@ -719,6 +726,9 @@ li {
     }
 }
 @media (max-width: 768px) {
+    .show-section {
+        padding-top: 3rem;
+    }
     .show-section-inner {
         padding-right: 1rem;
         padding-left: 1rem;
@@ -758,7 +768,10 @@ li {
 
 @media (max-width: 480px) {
     .show-section {
+        padding-top: 2rem;
         padding-bottom: 0;
+        border-top: 2px solid #ddd;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
     .show-section-flex {
         flex-direction: column;
