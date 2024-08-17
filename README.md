@@ -1,5 +1,8 @@
 # Engineer Book Club
 
+<img width="1391" alt="スクリーンショット 2024-08-17 18 48 31" src="https://github.com/user-attachments/assets/bfde2134-b873-4cbd-b329-f983422b63d5">
+
+
 Web エンジニア、Web デザイナーを目指す人向けの書籍紹介アプリ
 
 # 制作した目的
