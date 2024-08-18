@@ -164,7 +164,7 @@
 
     {{-- web技術全般/その他の投稿 --}}
   <section class="top-post-section pt-12 mb-8">
-    <h2 class="text-xl md:text-2xl font-semibold mb-10 sm:mb-14 top-post-title text-center title-webgeneral">web技術全般/その他</h2>
+    <h2 class="text-xl md:text-2xl font-semibold mb-10 sm:mb-14 top-post-title text-center title-webgeneral">Web技術全般/その他</h2>
     <ul class="top-list">
     @forelse($generalPosts as $post)
     <li class="top-list-item hover:opacity-70">
