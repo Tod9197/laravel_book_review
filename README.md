@@ -1,5 +1,8 @@
 # Engineer Book Club
 
+<img width="1391" alt="スクリーンショット 2024-08-17 18 48 31" src="https://github.com/user-attachments/assets/bfde2134-b873-4cbd-b329-f983422b63d5">
+
+
 Web エンジニア、Web デザイナーを目指す人向けの書籍紹介アプリ
 
 # 制作した目的
@@ -57,3 +60,7 @@ https://deep9197.xsrv.jp/
 -   新規投稿
 -   投稿一覧履歴
 -   ユーザー情報編集(名前、メールアドレス、パスワード、プロフィール画像)
+
+5. 検索バー実装
+
+-  書籍のタイトル、著者、出版社等で検索が可能
